@@ -89,7 +89,7 @@ Substitua os ficheiros mantendo nomes, dimensões e rácios. Se alterar um nome,
 | `public/images/og/ponto-de-fuga.webp` | 1200×630 | WebP, qualidade ~80 | 40:21 | Open Graph e Twitter por omissão |
 | `public/images/logo-dark.svg` | 480×120 viewBox | SVG | 4:1 | Logótipo para fundos claros |
 | `public/images/logo-light.svg` | 480×120 viewBox | SVG | 4:1 | Logótipo para fundos escuros |
-| `public/images/favicon.svg` e `app/icon.svg` | 64×64 viewBox | SVG | 1:1 | Favicon explícito e convenção de metadata do Next.js |
+| `public/images/favicon.svg` | 64×64 viewBox | SVG | 1:1 | Favicon definido por `siteContent.identity.favicon` |
 
 Checklist de cada imagem:
 
