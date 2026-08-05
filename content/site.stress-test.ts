@@ -57,8 +57,8 @@ export const stressTestSiteContent: SiteContent = {
   footer: {
     text: "Ponto de Fuga — Atelier de Arquitetura, Interiores, Consultadoria Técnica e Processos Urbanísticos. Conteúdo fictício para testes de template.",
     links: [
-      { label: "Política de privacidade", href: "/legal/politica-de-privacidade" },
-      { label: "Termos e condições", href: "/legal/termos" },
+      { label: "Política de privacidade", href: "/politica-de-privacidade" },
+      { label: "Termos e condições", href: "/termos" },
       { label: "Livro de reclamações", href: "/legal/livro-de-reclamacoes" },
       { label: "Mapa do site", href: "/mapa" },
     ],
@@ -87,6 +87,9 @@ export const stressTestSiteContent: SiteContent = {
           "Trabalhamos com clientes que precisam de transformar um imóvel, uma loja, um escritório ou uma dúvida técnica num processo claro, faseado e documentado, sem perder de vista orçamento, prazos e exigências municipais.",
         ctaLabel: "Preparar briefing técnico",
         ctaHref: "/contacto",
+        image: "/images/home/atelier-hero.webp",
+        imageAlt:
+          "Interior contemporâneo aberto para um pátio junto ao Atlântico",
       },
       servicesIntro: {
         title: "Serviços que cobrem as fases críticas do projeto",

@@ -1,20 +1,55 @@
 import type { Metadata } from "next";
-import { siteContent } from "@/content/site";
-import { Inter } from "next/font/google";
+import { Analytics } from "@/components/analytics";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { StructuredData } from "@/components/structured-data";
+import { WhatsappButton } from "@/components/whatsapp-button";
+import { siteContent, siteCopy } from "@/content/site";
+import { getOgImage, getSiteUrl } from "@/lib/seo";
+import { Afacad, Fraunces } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const afacad = Afacad({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
+const fraunces = Fraunces({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
+  metadataBase: getSiteUrl(),
   title: {
     default: siteContent.seoDefaults.title,
     template: `%s | ${siteContent.identity.name}`,
   },
   description: siteContent.seoDefaults.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: siteContent.seoDefaults.title,
+    description: siteContent.seoDefaults.description,
+    siteName: siteContent.identity.name,
+    images: [
+      {
+        url: getOgImage(siteContent.seoDefaults),
+        alt: siteContent.seoDefaults.title,
+      },
+    ],
+    locale: "pt_PT",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteContent.seoDefaults.title,
+    description: siteContent.seoDefaults.description,
+    images: [getOgImage(siteContent.seoDefaults)],
+  },
   icons: {
     icon: siteContent.identity.favicon,
   },
@@ -23,10 +58,27 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="pt-PT"
-      className={`${inter.variable} h-full antialiased`}
+      lang="pt"
+      className={`${afacad.variable} ${fraunces.variable} h-full scroll-smooth antialiased motion-reduce:scroll-auto`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full">
+        <div className="flex min-h-screen flex-col bg-background text-foreground">
+          <a
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-brand-primary focus:shadow-xl focus:outline focus:outline-2 focus:outline-brand-accent"
+            href="#conteudo"
+          >
+            {siteCopy.layout.skipLink}
+          </a>
+          <SiteHeader />
+          <main className="flex-1" id="conteudo">
+            {children}
+          </main>
+          <SiteFooter />
+          <WhatsappButton />
+          <StructuredData />
+        </div>
+        <Analytics />
+      </body>
     </html>
   );
 }

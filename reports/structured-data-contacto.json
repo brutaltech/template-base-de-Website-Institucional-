@@ -1,0 +1,11 @@
+{
+  "validator": "structured-data-testing-tool@4.5.0 printed LocalBusiness 100%: 1 passed, 0 failed, 0 warnings; CLI returns non-zero after output on Windows file/localhost handling.",
+  "schemaType": "LocalBusiness",
+  "jsonLdSyntaxValid": true,
+  "checks": {
+    "name": "Ponto de Fuga — Arquitetura e Interiores",
+    "address": "Rua da Linha do Horizonte, 42, Sala 3.2, 4450-999 Matosinhos, Portugal",
+    "telephone": "+351 220 123 456",
+    "localBusinessSchemaPresent": true
+  }
+}

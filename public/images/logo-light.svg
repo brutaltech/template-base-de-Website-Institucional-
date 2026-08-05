@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="120" viewBox="0 0 480 120" role="img" aria-labelledby="title description">
+  <title id="title">Ponto de Fuga</title>
+  <desc id="description">Logótipo claro do atelier Ponto de Fuga</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 20h88v80H14z" stroke="#fbfcf8" stroke-width="4"/>
+    <path d="M22 90 93 32M22 36l71 54M58 20v80" stroke="#fbfcf8" stroke-width="3"/>
+    <circle cx="93" cy="61" r="7" fill="#d88760" stroke="#223036" stroke-width="3"/>
+  </g>
+  <text x="126" y="57" fill="#fbfcf8" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" letter-spacing="1.5">PONTO DE FUGA</text>
+  <text x="128" y="84" fill="#dce6e3" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.2">ARQUITETURA + INTERIORES</text>
+</svg>
