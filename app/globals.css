@@ -9,8 +9,8 @@
   --color-brand-surface-soft: oklch(98% 0.008 130);
   --color-brand-success: oklch(51% 0.12 155);
   --color-brand-success-hover: oklch(43% 0.105 155);
-  --font-display: "Fraunces", serif;
-  --font-body: "Afacad", sans-serif;
+  --font-display: var(--font-source-display), serif;
+  --font-body: var(--font-source-body), sans-serif;
 }
 
 :root {

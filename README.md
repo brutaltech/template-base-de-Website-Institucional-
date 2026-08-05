@@ -70,10 +70,10 @@ Edite o primeiro bloco `@theme` em `app/globals.css`:
 | `--color-brand-surface-soft` | Variação muito suave para cartões estatísticos |
 | `--color-brand-success` | WhatsApp e mensagens de sucesso |
 | `--color-brand-success-hover` | Estado hover do botão WhatsApp |
-| `--font-display` | Títulos e elementos de marca |
-| `--font-body` | Texto corrente, navegação e formulários |
+| `--font-display` | Títulos e elementos de marca; use `var(--font-source-display)` ou `var(--font-source-body)` |
+| `--font-body` | Texto corrente, navegação e formulários; use `var(--font-source-body)` ou `var(--font-source-display)` |
 
-As fontes são carregadas em `app/layout.tsx` com `next/font`. Se mudar apenas os nomes das variáveis CSS, escolha famílias já carregadas; para adotar outra família, atualize também as importações de `next/font` no layout.
+As fontes são carregadas em `app/layout.tsx` com `next/font` e expostas como `--font-source-display` e `--font-source-body`. Para trocar apenas entre as duas famílias já carregadas, altere as referências no `@theme`; para adotar outra família, atualize também a importação de `next/font` no layout.
 
 Depois de trocar a paleta, teste todas as combinações texto/fundo no [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/). Como referência, WCAG AA pede 4,5:1 para texto normal, 3:1 para texto grande e 3:1 para componentes gráficos de interface.
 

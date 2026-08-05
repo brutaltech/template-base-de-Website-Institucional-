@@ -10,13 +10,13 @@ import { Afacad, Fraunces } from "next/font/google";
 import "./globals.css";
 
 const afacad = Afacad({
-  variable: "--font-body",
+  variable: "--font-source-body",
   subsets: ["latin"],
   display: "swap",
 });
 
 const fraunces = Fraunces({
-  variable: "--font-display",
+  variable: "--font-source-display",
   subsets: ["latin"],
   display: "swap",
 });
