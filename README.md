@@ -183,6 +183,10 @@ Faça estas verificações no URL público, não em `next dev`:
 - [ ] Lighthouse de produção ≥ 90 na Home e no Portefólio; relatórios arquivados.
 - [ ] `npm run lint`, `npm run build` e `git status` sem problemas pendentes.
 
+## Validação do desacoplamento
+
+O template foi transformado numa consultora imobiliária fictícia no branch `rehearsal/norte-habitat`. A transformação inicial demorou 3 min 17 s; depois de corrigidos os problemas encontrados no template, a repetição demorou 40 s. O diff final contém apenas `content/site.ts`, o `@theme` e ficheiros de `public/images/`, sem alterações a componentes. Consulte o [relatório do ensaio](reports/rehearsal.md).
+
 ## Comandos úteis
 
 ```bash
