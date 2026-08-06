@@ -7,7 +7,16 @@ import { siteContent } from "@/content/site";
 import { buildPageMetadata } from "@/lib/seo";
 
 export function generateMetadata() {
-  return buildPageMetadata(siteContent.seoDefaults, "/404");
+  return {
+    ...buildPageMetadata(siteContent.pages.notFound.seo),
+    alternates: {
+      canonical: null,
+    },
+    robots: {
+      follow: false,
+      index: false,
+    },
+  };
 }
 
 export default function NotFound() {

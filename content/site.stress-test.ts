@@ -9,7 +9,7 @@ export const stressTestSiteContent: SiteContent = {
       "Atelier fictício de arquitetura e design de interiores em Matosinhos, criado para stress-testar layouts institucionais com conteúdo extenso.",
     logoLight: "/images/logo-light.svg",
     logoDark: "/images/logo-dark.svg",
-    favicon: "/favicon.ico",
+    favicon: "/images/favicon.svg",
   },
 
   contact: {
@@ -25,7 +25,8 @@ export const stressTestSiteContent: SiteContent = {
       postalCode: "4450-998",
       city: "Matosinhos",
       country: "Portugal",
-      mapEmbedUrl: "https://maps.example.com/embed/ponto-de-fuga",
+      mapEmbedUrl:
+        "https://www.google.com/maps?q=Rua%20da%20Linha%20do%20Horizonte%2042%20Matosinhos%20Portugal&output=embed",
     },
     hours: [
       { day: "Segunda", hours: "09:00–18:30" },
@@ -68,7 +69,7 @@ export const stressTestSiteContent: SiteContent = {
       "Ponto de Fuga — Arquitetura, Interiores, Consultadoria Técnica e Licenciamento",
     description:
       "Template institucional com conteúdo longo para testar páginas de arquitetura, interiores, licenciamento, equipa, portefólio e contacto.",
-    ogImage: "/images/og/ponto-de-fuga-stress-test.jpg",
+    ogImage: "/images/og/ponto-de-fuga.webp",
   },
 
   pages: {
@@ -78,7 +79,7 @@ export const stressTestSiteContent: SiteContent = {
           "Ponto de Fuga — Atelier de Arquitetura e Interiores em Matosinhos",
         description:
           "Projetos residenciais, comerciais, consultadoria técnica e licenciamento com conteúdo extenso para stress-test de layout.",
-        ogImage: "/images/og/home-stress-test.jpg",
+        ogImage: "/images/og/ponto-de-fuga.webp",
       },
       hero: {
         title:
@@ -164,14 +165,14 @@ export const stressTestSiteContent: SiteContent = {
           name: "Inês Monteiro",
           role: "Arquiteta fundadora e coordenadora de projeto",
           bio: "Coordena estudos prévios, projetos de arquitetura e processos de licenciamento. Tem experiência em reabilitação leve, alterações de uso e compatibilização entre desenho, orçamento e requisitos municipais. No atelier, acompanha especialmente as fases em que uma decisão espacial precisa de ser traduzida em peças técnicas claras.",
-          photo: "/images/team/ines-monteiro.jpg",
+          photo: "/images/team/ines-monteiro.webp",
         },
         {
           id: "rui-valente",
           name: "Rui Valente",
           role: "Designer de interiores e detalhe de mobiliário",
           bio: "Trabalha layouts interiores, sistemas de arrumação, mapas de acabamentos e desenho de peças fixas. O seu foco está em tornar o espaço legível no uso diário, evitando soluções decorativas que criem problemas de manutenção, orçamento ou execução.",
-          photo: "/images/team/rui-valente.jpg",
+          photo: "/images/team/rui-valente.webp",
         },
         {
           id: "marta-cunha",
@@ -184,14 +185,12 @@ export const stressTestSiteContent: SiteContent = {
           name: "Tiago Nobre",
           role: "Arquiteto júnior",
           bio: "Apoia levantamentos, modelação, desenhos de execução e preparação de peças para consulta. Tem especial atenção à consistência gráfica e à leitura rápida das peças técnicas por quem vai orçamentar ou executar.",
-          photo: "/images/team/tiago-nobre.jpg",
         },
         {
           id: "sofia-almeida",
           name: "Sofia Almeida",
           role: "Consultora de materiais e acabamentos",
           bio: "Pesquisa materiais, sistemas de revestimento e soluções de iluminação adequadas a uso intensivo, manutenção simples e orçamento controlado. Ajuda a transformar intenções de ambiente em opções específicas, comparáveis e compráveis.",
-          photo: "/images/team/sofia-almeida.jpg",
         },
         {
           id: "joao-serra",
@@ -333,7 +332,7 @@ export const stressTestSiteContent: SiteContent = {
           category: "Habitação",
           description:
             "Reorganização de apartamento T2 dos anos 80, com demolições controladas, melhoria da relação entre sala e cozinha e desenho de armários para resolver falta de arrumação.",
-          image: "/images/portfolio/apartamento-leca.jpg",
+          image: "/images/portfolio/apartamento-leca.webp",
         },
         {
           id: "loja-senhora-hora",
@@ -341,7 +340,7 @@ export const stressTestSiteContent: SiteContent = {
           category: "Comércio",
           description:
             "Interiores para loja de frente estreita, incluindo receção, atendimento rápido, zona técnica oculta e materiais resistentes a uso diário.",
-          image: "/images/portfolio/loja-senhora-hora.jpg",
+          image: "/images/portfolio/loja-senhora-hora.webp",
         },
         {
           id: "moradia-lavra",
@@ -356,7 +355,7 @@ export const stressTestSiteContent: SiteContent = {
           category: "Trabalho",
           description:
             "Conversão de fração em pequeno escritório com oito postos, sala de reunião informal, copa discreta e armazenamento fechado.",
-          image: "/images/portfolio/escritorio-matosinhos-sul.jpg",
+          image: "/images/portfolio/escritorio-matosinhos-sul.webp",
         },
         {
           id: "clinica-ramalde",
@@ -364,7 +363,7 @@ export const stressTestSiteContent: SiteContent = {
           category: "Saúde",
           description:
             "Organização de receção, gabinetes e zona de exercício com atenção a circulação, privacidade visual e limpeza dos percursos.",
-          image: "/images/portfolio/clinica-ramalde.jpg",
+          image: "/images/portfolio/moradia-lavra.webp",
         },
         {
           id: "estudio-bonfim",
@@ -372,7 +371,7 @@ export const stressTestSiteContent: SiteContent = {
           category: "Alojamento",
           description:
             "Revisão de layout para estúdio pequeno, com cozinha linear, banho compacto e mobiliário fixo capaz de separar funções sem fechar o espaço.",
-          image: "/images/portfolio/estudio-bonfim.jpg",
+          image: "/images/portfolio/apartamento-leca.webp",
         },
         {
           id: "cafe-matosinhos-mercado",
@@ -406,6 +405,25 @@ export const stressTestSiteContent: SiteContent = {
         error:
           "O envio falhou. Pode tentar novamente ou escrever diretamente para o email indicado.",
       },
+      emailTemplate: {
+        subject: "Novo pedido para {companyName} — {senderName}",
+        heading: "Novo pedido de contacto para {companyName}",
+        nameLabel: "Nome",
+        emailLabel: "Email",
+        phoneLabel: "Telefone",
+        messageLabel: "Mensagem",
+        notProvided: "Não indicado",
+      },
+      validationMessages: {
+        nameMin: "Indique o seu nome.",
+        nameMax: "Indique um nome mais curto.",
+        emailInvalid: "Indique um email válido.",
+        emailMax: "Indique um email mais curto.",
+        phoneMax: "Indique um telefone mais curto.",
+        phoneInvalid: "Indique um telefone válido.",
+        messageMin: "Escreva uma mensagem com mais algum contexto.",
+        messageMax: "Reduza a mensagem para menos de 2000 caracteres.",
+      },
       faq: [
         {
           id: "documentos",
@@ -434,6 +452,10 @@ export const stressTestSiteContent: SiteContent = {
       ],
     },
     notFound: {
+      seo: {
+        title: "Página não encontrada",
+        description: "O endereço pedido não existe ou foi movido.",
+      },
       title: "Página não encontrada",
       message:
         "O endereço que tentou abrir não corresponde a nenhuma página disponível neste template de teste.",

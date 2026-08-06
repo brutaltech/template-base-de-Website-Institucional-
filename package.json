@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "tsx --test tests/contact-form-schema.test.mjs tests/contact-form-security.test.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -30,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.9",
     "typescript": "^5"
   }
 }

@@ -168,7 +168,7 @@ export default function AboutPage() {
       <Section className="bg-brand-secondary text-white">
         <Container>
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase text-brand-accent">
+            <p className="text-sm font-semibold uppercase text-brand-accent-on-dark">
               {siteCopy.aboutPage.differentiatorsEyebrow}
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight sm:text-5xl">

@@ -1,12 +1,17 @@
+import { siteContent } from "@/content/site"
+import { getAddressText } from "@/lib/contact-links"
+
+export const companyAddress = getAddressText(siteContent.contact.address)
+
 > Nota: este texto é um modelo de estrutura, não é aconselhamento jurídico. O texto final e a respetiva validação legal são responsabilidade de quem publica o site de cada cliente.
 
 ## Responsável pelo tratamento
 
-Responsável: **[PLACEHOLDER A SUBSTITUIR] Ponto de Fuga — Arquitetura e Interiores**.
+Responsável: <strong>{siteContent.identity.name}</strong>.
 
-Email de contacto: **[PLACEHOLDER A SUBSTITUIR] geral@pontodefuga.example**.
+Email de contacto: <a href={`mailto:${siteContent.contact.email}`}>{siteContent.contact.email}</a>.
 
-Morada: **[PLACEHOLDER A SUBSTITUIR] Rua da Linha do Horizonte, 42, Sala 3.2, 4450-999 Matosinhos, Portugal**.
+Morada: <strong>{companyAddress}</strong>.
 
 ## Dados recolhidos
 
@@ -30,7 +35,7 @@ O tratamento técnico essencial baseia-se no interesse legítimo de manter o sit
 
 Os pedidos de contacto devem ser conservados apenas durante o período necessário para responder, acompanhar o pedido e cumprir obrigações legais aplicáveis.
 
-Como referência provisória, recomenda-se rever mensagens de contacto após 12 meses quando não exista relação contratual ativa.
+As mensagens de contacto são revistas ao fim de 12 meses e eliminadas quando não exista uma relação contratual ativa nem uma obrigação legal de conservação.
 
 ## Partilha de dados
 
@@ -58,4 +63,4 @@ Sem configuração de analytics, este template não carrega Google Analytics.
 
 Esta política pode ser atualizada para refletir alterações legais, técnicas ou operacionais.
 
-Recomenda-se indicar aqui a data da última atualização antes de publicar o site final.
+Última atualização: 6 de agosto de 2026.

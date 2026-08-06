@@ -1,21 +1,30 @@
 @import "tailwindcss";
 
-@theme {
-  --color-brand-primary: oklch(31% 0.035 222);
-  --color-brand-secondary: oklch(23% 0.05 235);
-  --color-brand-accent: oklch(54% 0.125 43);
-  --color-brand-canvas: oklch(99% 0.008 110);
-  --color-brand-surface: oklch(96% 0.012 150);
-  --color-brand-surface-soft: oklch(98% 0.008 130);
-  --color-brand-success: oklch(51% 0.12 155);
-  --color-brand-success-hover: oklch(43% 0.105 155);
+@theme inline {
+  --color-brand-primary: var(--site-color-primary);
+  --color-brand-secondary: var(--site-color-secondary);
+  --color-brand-accent: var(--site-color-accent);
+  --color-brand-accent-on-dark: var(--site-color-accent-on-dark);
+  --color-brand-muted-text: var(--site-color-muted-text);
+  --color-brand-canvas: var(--site-color-canvas);
+  --color-brand-surface: var(--site-color-surface);
+  --color-brand-surface-soft: var(--site-color-surface-soft);
+  --color-brand-success: var(--site-color-success);
+  --color-brand-success-hover: var(--site-color-success-hover);
+  --color-white: var(--site-color-white);
+  --shadow-brand-button: 0 18px 40px
+    color-mix(in oklch, var(--site-color-primary) 18%, transparent);
+  --shadow-brand-card-dark: 0 24px 80px
+    color-mix(in oklch, var(--site-color-secondary) 22%, transparent);
+  --shadow-brand-whatsapp: 0 18px 45px
+    color-mix(in oklch, var(--site-color-success) 28%, transparent);
   --font-display: var(--font-source-display), serif;
   --font-body: var(--font-source-body), sans-serif;
 }
 
 :root {
-  --background: var(--color-brand-canvas);
-  --foreground: var(--color-brand-primary);
+  --background: var(--site-color-canvas);
+  --foreground: var(--site-color-primary);
 }
 
 @theme inline {
@@ -118,7 +127,7 @@ body {
     ),
     linear-gradient(
       22deg,
-      rgb(255 255 255 / 0.11) 1px,
+      color-mix(in oklch, var(--site-color-white) 11%, transparent) 1px,
       transparent 1px
     );
   background-size: 100% 100%, 64px 64px;

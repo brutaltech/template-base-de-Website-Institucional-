@@ -3,7 +3,6 @@
 import { Send } from "lucide-react";
 import {
   useActionState,
-  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -18,7 +17,7 @@ import {
   CONTACT_FORM_FIELD_NAMES,
   CONTACT_FORM_LIMITS,
   contactFormPayloadFromFormData,
-  contactFormSchema,
+  createContactFormSchema,
   flattenContactFormErrors,
   initialContactFormState,
 } from "@/lib/contact-form-schema";
@@ -28,9 +27,13 @@ import type {
 } from "@/lib/contact-form-schema";
 
 type ContactFormLabels = SiteContent["pages"]["contact"]["formLabels"];
+type ContactValidationMessages =
+  SiteContent["pages"]["contact"]["validationMessages"];
 
 type ContactFormProps = {
+  formToken: string;
   labels: ContactFormLabels;
+  validationMessages: ContactValidationMessages;
 };
 
 const inputClassName =
@@ -40,31 +43,27 @@ function hasErrors(errors: ContactFormFieldErrors) {
   return Object.values(errors).some((value) => value && value.length > 0);
 }
 
-export function ContactForm({ labels }: ContactFormProps) {
+export function ContactForm({
+  formToken,
+  labels,
+  validationMessages,
+}: ContactFormProps) {
   const [state, formAction, pending] = useActionState(
     sendContactMessage,
     initialContactFormState,
   );
   const [clientErrors, setClientErrors] = useState<ContactFormFieldErrors>({});
   const formRef = useRef<HTMLFormElement>(null);
-  const loadedAtRef = useRef<HTMLInputElement>(null);
-
-  const refreshLoadedAt = useCallback(() => {
-    if (loadedAtRef.current) {
-      loadedAtRef.current.value = String(Date.now());
-    }
-  }, []);
-
-  useEffect(() => {
-    refreshLoadedAt();
-  }, [refreshLoadedAt]);
+  const validationSchema = useMemo(
+    () => createContactFormSchema(validationMessages),
+    [validationMessages],
+  );
 
   useEffect(() => {
     if (state.status === "success") {
       formRef.current?.reset();
-      refreshLoadedAt();
     }
-  }, [refreshLoadedAt, state.status]);
+  }, [state.status]);
 
   const liveMessage = useMemo(() => {
     if (hasErrors(clientErrors)) {
@@ -80,7 +79,7 @@ export function ContactForm({ labels }: ContactFormProps) {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     const formData = new FormData(event.currentTarget);
-    const parsed = contactFormSchema.safeParse(
+    const parsed = validationSchema.safeParse(
       contactFormPayloadFromFormData(formData),
     );
 
@@ -107,9 +106,8 @@ export function ContactForm({ labels }: ContactFormProps) {
       ref={formRef}
     >
       <input
-        defaultValue=""
-        name={CONTACT_FORM_FIELD_NAMES.loadedAt}
-        ref={loadedAtRef}
+        defaultValue={formToken}
+        name={CONTACT_FORM_FIELD_NAMES.formToken}
         type="hidden"
       />
 

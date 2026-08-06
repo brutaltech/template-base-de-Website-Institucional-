@@ -6,6 +6,7 @@ import {
   MessageCircle,
   Phone,
 } from "lucide-react";
+import { connection } from "next/server";
 import { ContactForm } from "@/components/contact-form";
 import { MapEmbedFacade } from "@/components/map-embed-facade";
 import { PageHero } from "@/components/page-hero";
@@ -16,24 +17,36 @@ import { Section } from "@/components/ui/section";
 import { siteContent, siteCopy } from "@/content/site";
 import {
   getAddressText,
+  getLocationText,
   getMapEmbedUrl,
   getWhatsappHref,
 } from "@/lib/contact-links";
 import { buildPageMetadata } from "@/lib/seo";
+import { createContactFormToken } from "@/lib/contact-form-security";
 
 export function generateMetadata() {
   return buildPageMetadata(siteContent.pages.contact.seo, "/contacto");
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  await connection();
+
   const { contact } = siteContent;
   const page = siteContent.pages.contact;
   const address = getAddressText(contact.address);
+  const location = getLocationText(contact.address);
   const whatsappHref = getWhatsappHref(contact.whatsapp);
   const mapEmbedUrl = getMapEmbedUrl(contact.address);
   const mapSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     address,
   )}`;
+  let formToken = "";
+
+  try {
+    formToken = createContactFormToken();
+  } catch {
+    console.error("Contact form token secret is not configured correctly.");
+  }
 
   return (
     <>
@@ -51,7 +64,11 @@ export default function ContactPage() {
                 {siteCopy.contactPage.formTitle}
               </h2>
               <div className="mt-8">
-                <ContactForm labels={page.formLabels} />
+                <ContactForm
+                  formToken={formToken}
+                  labels={page.formLabels}
+                  validationMessages={page.validationMessages}
+                />
               </div>
             </Card>
 
@@ -148,7 +165,7 @@ export default function ContactPage() {
                 {siteCopy.contactPage.mapEyebrow}
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-brand-primary sm:text-5xl">
-                {contact.address.city}, {contact.address.country}
+                {location}
               </h2>
               <p className="mt-5 text-lg leading-8 text-brand-primary/72">
                 {address}

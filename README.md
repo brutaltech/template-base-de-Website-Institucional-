@@ -2,13 +2,26 @@
 
 Template Next.js para sites institucionais de pequenas empresas, com Home, Sobre, Serviços, Portefólio, Contacto e páginas legais. Inclui SEO técnico, dados estruturados, formulário transacional por Resend, WhatsApp e Google Analytics opcional. O conteúdo do cliente vive em `content/site.ts`; componentes e layout podem ser reutilizados sem reescrever o site.
 
+**Demo publicada:** [https://ponto-de-fuga-brutaltech.vercel.app](https://ponto-de-fuga-brutaltech.vercel.app)
+
 ## Arranque local
 
 Pré-requisitos: Node.js 20.9 ou superior, npm e Git.
 
+Este pacote não pressupõe uma URL pública de Git. A cópia auditada não tem um remote `origin`, portanto o acesso ao código é o único dado externo que o responsável pela entrega tem de fornecer. Não tente adivinhar uma URL:
+
+- **Por arquivo:** peça ao responsável um ZIP desta pasta, extraia-o e abra um terminal na raiz que contém `package.json`.
+- **Por Git:** peça ao responsável acesso ao repositório e a respetiva URL HTTPS ou SSH. Em PowerShell, clone-a sem deixar um valor fictício no comando:
+
+```powershell
+$repositoryUrl = Read-Host "Cole a URL Git fornecida pelo responsável"
+git clone $repositoryUrl projeto1
+Set-Location projeto1
+```
+
+Quando estiver na raiz do projeto, instale as dependências:
+
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd <PASTA_DO_PROJETO>
 npm install
 ```
 
@@ -46,6 +59,7 @@ Edite `content/site.ts`. O ficheiro tem tipos e comentários campo a campo; a vi
 - `siteContent.pages`: SEO e conteúdo de Home, Sobre, Serviços, Portefólio, Contacto e erro 404.
 - `siteCopy`: microcopy estrutural, como etiquetas de navegação, títulos auxiliares e mensagens de interface.
 - `legalPages`: nomes, rotas e SEO das páginas legais.
+- `siteTheme`, em `content/theme.ts`: a paleta única usada pelo site e pelos emails.
 
 Regras práticas:
 
@@ -53,29 +67,41 @@ Regras práticas:
 - Use caminhos iniciados por `/` para ficheiros dentro de `public/`.
 - Use URLs completas, começadas por `https://`, para redes sociais e mapa.
 - O número de WhatsApp deve incluir o indicativo internacional. A mensagem é codificada automaticamente.
-- O formulário envia para `siteContent.contact.email`; confirme que é uma caixa real antes do teste final.
+- `siteContent.contact.email` é o **destinatário** público do formulário: substitua-o pelo email real do cliente e confirme que essa caixa recebe mensagens. `RESEND_FROM_EMAIL` é o **remetente** técnico, configurado no ambiente, e tem de usar um domínio ou subdomínio verificado na Resend. São valores independentes e ambos têm de estar corretos.
 - Fotografias de equipa e portefólio podem ser omitidas: o layout tem um fallback, mas a entrega final deve usar o inventário completo quando o cliente fornecer imagens.
+
+#### Atualizar a morada e o mapa
+
+`contact.address.mapEmbedUrl` é um campo separado da morada estruturada porque o URL de incorporação do Google Maps tem parâmetros próprios. Trate os dois valores como um par acoplado e atualize-os na mesma alteração:
+
+1. Atualize `street`, `postalCode`, `city` e `country` em `siteContent.contact.address`.
+2. Num computador, abra o [Google Maps](https://maps.google.com) e pesquise a morada completa; confirme visualmente que o marcador está no local certo.
+3. Escolha **Partilhar → Incorporar um mapa**, selecione o tamanho e clique em **Copiar HTML**. Se estiver a partilhar a vista do mapa em vez de um local, use **Menu → Partilhar ou incorporar mapa → Incorporar um mapa**. Consulte as [instruções oficiais do Google Maps](https://support.google.com/maps/answer/7101463).
+4. No HTML copiado, copie apenas o URL completo entre aspas no atributo `src="…"` do `iframe`.
+5. Cole esse URL em `contact.address.mapEmbedUrl`, sem colar o elemento `iframe`.
+6. Abra `/contacto` e confirme o marcador, a morada visível e o link para abrir o mapa. Corra também `npm run build`.
 
 ### 2. Cores e fontes
 
-Edite o primeiro bloco `@theme` em `app/globals.css`:
+Edite as cores apenas em `siteTheme.colors`, no ficheiro `content/theme.ts`. O layout converte estes valores em variáveis CSS, o Tailwind consome-as e o template de email reutiliza os mesmos valores; não mantenha uma segunda paleta em componentes ou em `app/globals.css`.
 
-| Variável | Controla |
+| Campo | Controla |
 | --- | --- |
-| `--color-brand-primary` | Texto principal, contornos e superfícies de maior contraste |
-| `--color-brand-secondary` | Fundos escuros e variação institucional |
-| `--color-brand-accent` | Botões, etiquetas, foco e pequenos destaques |
-| `--color-brand-canvas` | Fundo base da página e transparência do cabeçalho/hero |
-| `--color-brand-surface` | Secções e cartões com fundo alternativo |
-| `--color-brand-surface-soft` | Variação muito suave para cartões estatísticos |
-| `--color-brand-success` | WhatsApp e mensagens de sucesso |
-| `--color-brand-success-hover` | Estado hover do botão WhatsApp |
-| `--font-display` | Títulos e elementos de marca; use `var(--font-source-display)` ou `var(--font-source-body)` |
-| `--font-body` | Texto corrente, navegação e formulários; use `var(--font-source-body)` ou `var(--font-source-display)` |
+| `primary` | Texto principal, botões e elementos estruturais |
+| `secondary` | Fundos escuros e superfícies de alto contraste |
+| `accent` | Destaques sobre fundos claros |
+| `accentOnDark` | Destaques com contraste AA sobre `secondary` |
+| `mutedText` | Texto secundário com contraste AA sobre fundos claros |
+| `canvas` | Fundo base da página e transparência do cabeçalho/hero |
+| `surface` | Secções e cartões com fundo alternativo |
+| `surfaceSoft` | Variação muito suave para cartões estatísticos |
+| `success` | WhatsApp e mensagens de sucesso |
+| `successHover` | Estado hover da cor de sucesso |
+| `white` | Branco da marca e misturas com transparência |
 
-As fontes são carregadas em `app/layout.tsx` com `next/font` e expostas como `--font-source-display` e `--font-source-body`. Para trocar apenas entre as duas famílias já carregadas, altere as referências no `@theme`; para adotar outra família, atualize também a importação de `next/font` no layout.
+As fontes são carregadas em `app/layout.tsx` com `next/font` e expostas como `--font-source-display` e `--font-source-body`. Para trocar apenas entre as duas famílias já carregadas, altere `--font-display` e `--font-body` no bloco `@theme inline` de `app/globals.css`; para adotar outra família, atualize também a importação de `next/font` no layout.
 
-Depois de trocar a paleta, teste todas as combinações texto/fundo no [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/). Como referência, WCAG AA pede 4,5:1 para texto normal, 3:1 para texto grande e 3:1 para componentes gráficos de interface.
+Depois de trocar a paleta, teste todas as combinações texto/fundo no [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/). Como referência, WCAG AA pede 4,5:1 para texto normal, 3:1 para texto grande e 3:1 para componentes gráficos de interface. Faça ainda o teste dinâmico: mude temporariamente `siteTheme.colors.primary`, compile e confirme que a cor antiga não sobrevive no site, nas sombras nem no email; depois reponha o valor final.
 
 ### 3. Imagens
 
@@ -108,13 +134,15 @@ Edite:
 - `content/legal/politica-de-privacidade.mdx`
 - `content/legal/termos.mdx`
 
-Pesquise por `[PLACEHOLDER A SUBSTITUIR]`, substitua todas as ocorrências e acrescente a data de atualização. Reveja também fornecedores, retenção de dados, cookies e analytics usados no projeto real.
+Os dados estruturais da empresa — nome, email e morada — já são lidos de `content/site.ts`. Reveja integralmente o restante texto para o caso real, confirme fornecedores, retenção de dados, cookies e analytics e atualize a data no fim de cada ficheiro.
 
 Os ficheiros fornecem estrutura editorial, não aconselhamento jurídico. O texto final e a respetiva validação legal são responsabilidade de quem publica o site do cliente.
 
 ### 5. Analytics
 
 Defina `NEXT_PUBLIC_GA_ID` com o ID de medição do cliente, por exemplo `G-XXXXXXXXXX`, e volte a fazer deploy. Não é necessário editar componentes. Se a variável estiver vazia, o Google Analytics não é carregado.
+
+Para obter o valor, abra a propriedade do cliente no GA4 e siga **Administração → Recolha e modificação de dados → Fluxos de dados → Web → [fluxo do site]**. Copie o **ID de medição** mostrado nos detalhes do fluxo; começa por `G-`. É necessário ter, pelo menos, acesso de Editor à propriedade. Consulte a [instrução oficial para localizar o ID de medição](https://support.google.com/analytics/answer/12270356).
 
 Confirme antes da ativação se o enquadramento legal do cliente exige consentimento prévio para analytics.
 
@@ -126,8 +154,11 @@ Nunca faça commit de `.env.local` ou de chaves reais. O `.gitignore` já exclui
 | --- | --- | --- | --- |
 | `RESEND_API_KEY` | Para o formulário real | Autentica o envio transacional no servidor | Crie uma chave com permissão **Sending access** no [dashboard de API keys da Resend](https://resend.com/docs/dashboard/api-keys/introduction). O valor só é mostrado uma vez. |
 | `RESEND_FROM_EMAIL` | Para o formulário real | Define o remetente do email | Use `Nome do site <contacto@subdominio.cliente.pt>`. O domínio ou subdomínio tem de estar verificado na Resend. |
+| `CONTACT_FORM_TOKEN_SECRET` | Em produção | Assina o token temporal anti-spam no servidor | Gere um valor aleatório exclusivo, com pelo menos 32 caracteres de entropia; por exemplo, `openssl rand -base64 32`. Não use prefixo `NEXT_PUBLIC_`. |
 | `NEXT_PUBLIC_SITE_URL` | Em produção | Base absoluta de canónicos, sitemap, robots, OG e JSON-LD | URL final com `https://` e sem caminho, por exemplo `https://cliente.pt`. |
-| `NEXT_PUBLIC_GA_ID` | Não | Ativa Google Analytics quando preenchida | ID de medição GA4, por exemplo `G-XXXXXXXXXX`; deixe vazio na demo. |
+| `NEXT_PUBLIC_GA_ID` | Não | Ativa Google Analytics quando preenchida | Em GA4: **Administração → Fluxos de dados → Web → fluxo do site**; copie o ID de medição `G-…`. Deixe vazio na demo. |
+
+`CONTACT_FORM_TOKEN_SECRET` não tem fallback em produção: se estiver ausente ou for inválido, a proteção anti-spam falha fechada e a submissão é recusada. Em desenvolvimento existe apenas um fallback local fixo para facilitar o arranque; nunca o trate como configuração de produção. Guarde o segredo apenas em `.env.local` e nas variáveis protegidas do alojamento. Para o gerar sem OpenSSL, pode usar `node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"`.
 
 Para preparar a Resend:
 
@@ -135,7 +166,9 @@ Para preparar a Resend:
 2. Publique no DNS os registos SPF e DKIM indicados e espere pelo estado **Verified**. A [documentação de domínios da Resend](https://resend.com/docs/dashboard/domains/introduction) explica os registos necessários.
 3. Crie uma API key com acesso apenas a envio e, se possível, restrita ao domínio.
 4. Use em `RESEND_FROM_EMAIL` exatamente o domínio ou subdomínio verificado; diferenças entre `cliente.pt` e `envios.cliente.pt` causam erro 403.
-5. Coloque a chave apenas em `.env.local` e nas variáveis protegidas da Vercel.
+5. Defina `siteContent.contact.email` com uma caixa real do cliente que possa confirmar a receção; não use domínios reservados como `.example`.
+6. Coloque a chave apenas em `.env.local` e nas variáveis protegidas da Vercel.
+7. Em produção, faça uma submissão válida e só considere o formulário entregue quando vir o estado de sucesso **e** a mensagem chegar à caixa destinatária. Guarde uma captura com destinatário, assunto e hora, sem expor dados sensíveis.
 
 ## Deploy na Vercel
 
@@ -143,18 +176,22 @@ Para preparar a Resend:
 
 1. Confirme `npm run lint` e `npm run build` sem erros.
 2. Garanta que a branch de produção se chama `main` e que `git status` está limpo.
-3. Crie um repositório GitHub, configure-o como `origin` e envie `main`.
+3. Execute `git remote -v`. Se já existir um `origin` autorizado, use-o. Se o comando não devolver nada, crie um repositório vazio na conta GitHub que vai manter o projeto ou peça acesso ao repositório privado do responsável.
+4. Copie a URL HTTPS ou SSH apresentada pelo GitHub e, apenas no caso de ainda não existir `origin`, configure-a por introdução interativa. A URL é uma dependência externa e não está inventada neste template:
 
-```bash
+```powershell
 git branch -M main
-git remote add origin <URL_GIT_DO_REPOSITORIO>
+$repositoryUrl = Read-Host "Cole a URL HTTPS ou SSH do repositório autorizado"
+git remote add origin $repositoryUrl
 git push -u origin main
 ```
+
+Se `origin` já existir, não volte a executar `git remote add`; confirme o destino com `git remote get-url origin` e execute apenas `git push -u origin main`. Num repositório privado, o proprietário tem ainda de conceder acesso à conta que fará a importação na Vercel.
 
 ### Importar e configurar
 
 1. No dashboard da Vercel, escolha **Add New → Project**, importe o repositório e confirme o preset **Next.js**. A integração Git cria previews por branch e publica a branch de produção; consulte o [fluxo Git oficial da Vercel](https://vercel.com/docs/git).
-2. Em **Settings → Environment Variables**, adicione as quatro variáveis para **Production** e **Preview**. Deixe `NEXT_PUBLIC_GA_ID` vazio na demo. Alterações de variáveis só afetam novos deployments, por isso faça redeploy depois de as guardar; veja a [documentação de ambientes](https://vercel.com/docs/environment-variables).
+2. Em **Settings → Environment Variables**, adicione as cinco variáveis para **Production** e **Preview**. Deixe `NEXT_PUBLIC_GA_ID` vazio na demo. Alterações de variáveis só afetam novos deployments, por isso faça redeploy depois de as guardar; veja a [documentação de ambientes](https://vercel.com/docs/environment-variables).
 3. Se ainda não souber o domínio `*.vercel.app`, faça um primeiro deploy, copie a URL de produção, defina-a em `NEXT_PUBLIC_SITE_URL` e faça redeploy.
 4. Para domínio próprio, abra **Settings → Domains**, associe o domínio, aplique os registos DNS pedidos, troque `NEXT_PUBLIC_SITE_URL` para a URL canónica e faça novo deploy. Não deixe a URL temporária da Vercel nos metadados finais.
 
@@ -174,23 +211,25 @@ Faça estas verificações no URL público, não em `next dev`:
 - [ ] Nome, textos, contactos, morada, horários e redes sociais foram confirmados pelo cliente.
 - [ ] Logótipos, favicon, imagens e textos alternativos são finais e têm direitos de utilização.
 - [ ] Paleta revista com contraste AA e layout testado em telemóvel e desktop.
-- [ ] Textos legais revistos e todos os `[PLACEHOLDER A SUBSTITUIR]` removidos.
+- [ ] Textos legais revistos, validados para o caso real e com a data de atualização correta.
 - [ ] Domínio próprio ativo e `NEXT_PUBLIC_SITE_URL` igual ao domínio canónico.
 - [ ] Sitemap, robots, canonical, Open Graph e JSON-LD usam URLs de produção.
 - [ ] Formulário enviado em produção e email recebido na caixa correta.
 - [ ] WhatsApp testado num telemóvel real, com número e mensagem corretos.
 - [ ] Analytics configurado ou deliberadamente deixado inativo.
-- [ ] Lighthouse de produção ≥ 90 na Home e no Portefólio; relatórios arquivados.
+- [ ] Lighthouse de produção ≥ 90 nas quatro categorias em todas as páginas de conteúdo verificadas; relatórios arquivados.
+- [ ] Na 404, Performance, Acessibilidade e Boas Práticas são ≥ 90. A categoria SEO fica excluída deste limiar: uma 404 deve responder com HTTP 404 e `noindex`, e não deve ser tornada indexável nem responder 200 apenas para aumentar a pontuação Lighthouse.
 - [ ] `npm run lint`, `npm run build` e `git status` sem problemas pendentes.
 
 ## Validação do desacoplamento
 
-O template foi transformado numa consultora imobiliária fictícia no branch `rehearsal/norte-habitat`. A transformação inicial demorou 3 min 17 s; depois de corrigidos os problemas encontrados no template, a repetição demorou 40 s. O diff final contém apenas `content/site.ts`, o `@theme` e ficheiros de `public/images/`, sem alterações a componentes. Consulte o [relatório do ensaio](reports/rehearsal.md).
+O template foi transformado numa consultora imobiliária fictícia no branch `rehearsal/norte-habitat`. A transformação inicial demorou 3 min 17 s; depois de corrigidos os problemas encontrados no template, a repetição demorou 40 s. O ensaio original alterou apenas `content/site.ts`, a paleta e ficheiros de `public/images/`, sem alterações a componentes. A paleta foi entretanto centralizada em `content/theme.ts`, que é o ponto atual de personalização. Consulte o [relatório histórico do ensaio](reports/rehearsal.md).
 
 ## Comandos úteis
 
 ```bash
 npm run dev      # desenvolvimento local
+npm test         # valida schema configurável, token HMAC e rate limit
 npm run lint     # regras de qualidade e acessibilidade estática
 npm run build    # compilação de produção
 npm run start    # serve localmente a compilação de produção

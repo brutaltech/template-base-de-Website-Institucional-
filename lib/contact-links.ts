@@ -13,6 +13,14 @@ export function getAddressText(address: Contact["address"]) {
   return `${address.street}, ${address.postalCode} ${address.city}, ${address.country}`;
 }
 
+export function getLocationText(address: Contact["address"]) {
+  return [address.city, address.country].filter(Boolean).join(", ");
+}
+
+export function getHoursText(hours: Contact["hours"][number]) {
+  return [hours.day, hours.hours].filter(Boolean).join(": ");
+}
+
 export function getMapEmbedUrl(address: Contact["address"]) {
   if (address.mapEmbedUrl) {
     return address.mapEmbedUrl;

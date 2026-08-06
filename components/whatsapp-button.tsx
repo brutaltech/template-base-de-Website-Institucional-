@@ -9,7 +9,7 @@ export function WhatsappButton() {
   return (
     <a
       aria-label={siteCopy.whatsapp.ariaLabel.replace("{name}", identity.name)}
-      className="fixed bottom-4 right-4 z-40 inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand-success px-4 py-3 text-sm font-semibold text-white shadow-[0_18px_45px_rgba(31,122,77,0.28)] transition hover:-translate-y-0.5 hover:bg-brand-success-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:bottom-6 sm:right-6"
+      className="fixed bottom-4 right-4 z-40 inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand-success px-4 py-3 text-sm font-semibold text-white shadow-brand-whatsapp transition hover:-translate-y-0.5 hover:bg-brand-success-hover active:translate-y-px active:bg-brand-success-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:active:translate-y-0 sm:bottom-6 sm:right-6"
       href={href}
       rel="noopener noreferrer"
       target="_blank"

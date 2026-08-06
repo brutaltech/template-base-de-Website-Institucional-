@@ -4,7 +4,7 @@ type CardVariant = "default" | "dark" | "stat";
 
 const variants: Record<CardVariant, string> = {
   default: "border-brand-primary/10 bg-white/82 text-brand-primary shadow-sm",
-  dark: "border-white/10 bg-brand-secondary text-white shadow-[0_24px_80px_rgba(22,33,39,0.22)]",
+  dark: "border-white/10 bg-brand-secondary text-white shadow-brand-card-dark",
   stat: "border-brand-primary/10 bg-brand-surface-soft text-brand-primary",
 };
 

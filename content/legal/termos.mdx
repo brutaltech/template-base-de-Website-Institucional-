@@ -1,12 +1,17 @@
+import { siteContent } from "@/content/site"
+import { getAddressText } from "@/lib/contact-links"
+
+export const companyAddress = getAddressText(siteContent.contact.address)
+
 > Nota: este texto é um modelo de estrutura, não é aconselhamento jurídico. O texto final e a respetiva validação legal são responsabilidade de quem publica o site de cada cliente.
 
 ## Identificação
 
-Este site é disponibilizado por **[PLACEHOLDER A SUBSTITUIR] Ponto de Fuga — Arquitetura e Interiores**.
+Este site é disponibilizado por <strong>{siteContent.identity.name}</strong>.
 
-Email de contacto: **[PLACEHOLDER A SUBSTITUIR] geral@pontodefuga.example**.
+Email de contacto: <a href={`mailto:${siteContent.contact.email}`}>{siteContent.contact.email}</a>.
 
-Morada: **[PLACEHOLDER A SUBSTITUIR] Rua da Linha do Horizonte, 42, Sala 3.2, 4450-999 Matosinhos, Portugal**.
+Morada: <strong>{companyAddress}</strong>.
 
 ## Utilização do site
 
@@ -46,4 +51,4 @@ Na máxima medida permitida pela lei, não se responsabiliza por danos resultant
 
 Estes termos podem ser revistos para refletir alterações operacionais, legais ou técnicas.
 
-Recomenda-se indicar aqui a data da última atualização antes de publicar o site final.
+Última atualização: 6 de agosto de 2026.

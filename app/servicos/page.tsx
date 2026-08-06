@@ -31,11 +31,11 @@ export default function ServicesPage() {
                 className="relative min-h-[23rem] overflow-hidden"
                 key={service.id}
               >
-                  <div
-                    aria-hidden="true"
-                    className="perspective-corner absolute right-0 top-0 h-24 w-28"
+                <div
+                  aria-hidden="true"
+                  className="perspective-corner absolute right-0 top-0 h-24 w-28"
                 />
-                <p className="text-sm font-semibold text-brand-primary/45">
+                <p className="text-sm font-semibold text-brand-muted-text">
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <div className="mt-6 flex h-12 w-12 items-center justify-center rounded-md bg-brand-primary text-white">

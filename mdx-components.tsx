@@ -24,7 +24,7 @@ const components: MDXComponents = {
     <strong className="font-semibold text-brand-primary">{children}</strong>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="my-8 border-l-2 border-brand-accent bg-[#f0f4ef] px-5 py-4 text-brand-primary">
+    <blockquote className="my-8 border-l-2 border-brand-accent bg-brand-surface px-5 py-4 text-brand-primary">
       {children}
     </blockquote>
   ),

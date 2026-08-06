@@ -1,4 +1,5 @@
 import * as z from "zod";
+import type { ContactValidationMessages } from "@/content/site";
 
 export const CONTACT_FORM_FIELD_NAMES = {
   name: "name",
@@ -6,7 +7,7 @@ export const CONTACT_FORM_FIELD_NAMES = {
   phone: "phone",
   message: "message",
   honeypot: "company",
-  loadedAt: "loadedAt",
+  formToken: "formToken",
 } as const;
 
 export const CONTACT_FORM_LIMITS = {
@@ -18,50 +19,48 @@ export const CONTACT_FORM_LIMITS = {
   messageMax: 2000,
 } as const;
 
-export const CONTACT_FORM_MIN_ELAPSED_MS = 2400;
+export function createContactFormSchema(
+  messages: ContactValidationMessages,
+) {
+  const optionalPhoneSchema = z.preprocess(
+    (value) => {
+      if (typeof value !== "string") {
+        return value;
+      }
 
-const optionalPhoneSchema = z.preprocess(
-  (value) => {
-    if (typeof value !== "string") {
-      return value;
-    }
+      const trimmed = value.trim();
+      return trimmed.length > 0 ? trimmed : undefined;
+    },
+    z
+      .string()
+      .max(CONTACT_FORM_LIMITS.phoneMax, messages.phoneMax)
+      .regex(/^[\d\s+().-]+$/, messages.phoneInvalid)
+      .optional(),
+  );
 
-    const trimmed = value.trim();
-    return trimmed.length > 0 ? trimmed : undefined;
-  },
-  z
-    .string()
-    .max(CONTACT_FORM_LIMITS.phoneMax, "Indique um telefone mais curto.")
-    .regex(/^[\d\s+().-]+$/, "Indique um telefone valido.")
-    .optional(),
-);
+  return z.object({
+    name: z
+      .string()
+      .trim()
+      .min(CONTACT_FORM_LIMITS.nameMin, messages.nameMin)
+      .max(CONTACT_FORM_LIMITS.nameMax, messages.nameMax),
+    email: z
+      .string()
+      .trim()
+      .email(messages.emailInvalid)
+      .max(CONTACT_FORM_LIMITS.emailMax, messages.emailMax),
+    phone: optionalPhoneSchema,
+    message: z
+      .string()
+      .trim()
+      .min(CONTACT_FORM_LIMITS.messageMin, messages.messageMin)
+      .max(CONTACT_FORM_LIMITS.messageMax, messages.messageMax),
+  });
+}
 
-export const contactFormSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(CONTACT_FORM_LIMITS.nameMin, "Indique o seu nome.")
-    .max(CONTACT_FORM_LIMITS.nameMax, "Indique um nome mais curto."),
-  email: z
-    .string()
-    .trim()
-    .email("Indique um email valido.")
-    .max(CONTACT_FORM_LIMITS.emailMax, "Indique um email mais curto."),
-  phone: optionalPhoneSchema,
-  message: z
-    .string()
-    .trim()
-    .min(
-      CONTACT_FORM_LIMITS.messageMin,
-      "Escreva uma mensagem com mais algum contexto.",
-    )
-    .max(
-      CONTACT_FORM_LIMITS.messageMax,
-      "Reduza a mensagem para menos de 2000 caracteres.",
-    ),
-});
-
-export type ContactFormFields = z.infer<typeof contactFormSchema>;
+export type ContactFormFields = z.infer<
+  ReturnType<typeof createContactFormSchema>
+>;
 export type ContactFormField = keyof ContactFormFields;
 export type ContactFormFieldErrors = Partial<Record<ContactFormField, string[]>>;
 

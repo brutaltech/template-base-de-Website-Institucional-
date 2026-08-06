@@ -5,8 +5,10 @@ import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import { WhatsappButton } from "@/components/whatsapp-button";
 import { siteContent, siteCopy } from "@/content/site";
-import { getOgImage, getSiteUrl } from "@/lib/seo";
+import { siteThemeCssVariables } from "@/content/theme";
+import { getOgImage, getSiteUrl, resolveSeoMeta } from "@/lib/seo";
 import { Afacad, Fraunces } from "next/font/google";
+import type { CSSProperties } from "react";
 import "./globals.css";
 
 const afacad = Afacad({
@@ -21,24 +23,26 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+const defaultSeo = resolveSeoMeta(siteContent.seoDefaults);
+
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
   title: {
-    default: siteContent.seoDefaults.title,
+    default: defaultSeo.title,
     template: `%s | ${siteContent.identity.name}`,
   },
-  description: siteContent.seoDefaults.description,
+  description: defaultSeo.description,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: siteContent.seoDefaults.title,
-    description: siteContent.seoDefaults.description,
+    title: defaultSeo.title,
+    description: defaultSeo.description,
     siteName: siteContent.identity.name,
     images: [
       {
         url: getOgImage(siteContent.seoDefaults),
-        alt: siteContent.seoDefaults.title,
+        alt: defaultSeo.title,
       },
     ],
     locale: "pt_PT",
@@ -46,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteContent.seoDefaults.title,
-    description: siteContent.seoDefaults.description,
+    title: defaultSeo.title,
+    description: defaultSeo.description,
     images: [getOgImage(siteContent.seoDefaults)],
   },
   icons: {
@@ -60,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt"
       className={`${afacad.variable} ${fraunces.variable} h-full scroll-smooth antialiased motion-reduce:scroll-auto`}
+      style={siteThemeCssVariables as CSSProperties}
     >
       <body className="min-h-full">
         <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -70,7 +75,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {siteCopy.layout.skipLink}
           </a>
           <SiteHeader />
-          <main className="flex-1" id="conteudo">
+          <main className="flex-1 pb-20 sm:pb-0" id="conteudo">
             {children}
           </main>
           <SiteFooter />
