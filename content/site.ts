@@ -176,6 +176,51 @@ export function interpolateContentTemplate(
   );
 }
 
+// ── Tema e tokens visuais ────────────────────────────────────────────
+
+/** Paleta visual do site e dos emails. */
+export const siteTheme = {
+  colors: {
+    /** Cor principal para texto, botões e elementos estruturais. */
+    primary: "#1b343d",
+    /** Cor escura para superfícies de alto contraste. */
+    secondary: "#002030",
+    /** Cor de destaque sobre superfícies claras. */
+    accent: "#a9522c",
+    /** Cor de destaque com contraste AA sobre `secondary`. */
+    accentOnDark: "#d88760",
+    /** Texto secundário sólido com contraste AA sobre fundos claros. */
+    mutedText: "#617277",
+    /** Fundo principal da página. */
+    canvas: "#fcfcf6",
+    /** Fundo alternativo de secções. */
+    surface: "#ecf4ee",
+    /** Fundo subtil de cartões e elementos de apoio. */
+    surfaceSoft: "#f7faf4",
+    /** Cor do atalho de WhatsApp e estados de sucesso. */
+    success: "#127946",
+    /** Estado hover da cor de sucesso. */
+    successHover: "#036035",
+    /** Branco da marca, usado também em transparências. */
+    white: "#ffffff",
+  },
+} as const;
+
+/** Variáveis injetadas no elemento `<html>` pelo layout raiz. */
+export const siteThemeCssVariables = {
+  "--site-color-primary": siteTheme.colors.primary,
+  "--site-color-secondary": siteTheme.colors.secondary,
+  "--site-color-accent": siteTheme.colors.accent,
+  "--site-color-accent-on-dark": siteTheme.colors.accentOnDark,
+  "--site-color-muted-text": siteTheme.colors.mutedText,
+  "--site-color-canvas": siteTheme.colors.canvas,
+  "--site-color-surface": siteTheme.colors.surface,
+  "--site-color-surface-soft": siteTheme.colors.surfaceSoft,
+  "--site-color-success": siteTheme.colors.success,
+  "--site-color-success-hover": siteTheme.colors.successHover,
+  "--site-color-white": siteTheme.colors.white,
+} as const;
+
 // ── Conteúdo principal ────────────────────────────────────────────
 
 export interface SiteContent {
@@ -391,11 +436,11 @@ export const siteCopy = {
     servicesAnchorLabel: "Ver serviços",
     /** Nota gráfica apresentada junto ao hero. */
     heroNote:
-      "Perspetiva como método: traço, plano e ponto de decisão alinhados antes da obra.",
+      "Preço fechado: 399€. Prazo fechado: 5 dias úteis. Sem surpresas.",
     /** Sobretítulo da secção de serviços. */
     servicesEyebrow: "Serviços",
     /** Sobretítulo da apresentação institucional. */
-    aboutEyebrow: "Atelier",
+    aboutEyebrow: "BrutalTech",
   },
   pageEyebrows: {
     /** Sobretítulo da página Sobre. */
@@ -415,24 +460,24 @@ export const siteCopy = {
     /** Sobretítulo da secção de valores. */
     valuesEyebrow: "Valores",
     /** Título da secção de valores. */
-    valuesTitle: "Princípios que orientam cada decisão.",
+    valuesTitle: "Princípios simples, aplicados a cada projeto.",
     /** Sobretítulo da secção de equipa. */
     teamEyebrow: "Equipa",
     /** Título da secção de equipa. */
-    teamTitle: "Pessoas com responsabilidades claras.",
+    teamTitle: "Três pessoas, uma equipa completa.",
     /** Sobretítulo da secção de diferenciadores. */
     differentiatorsEyebrow: "Diferenciadores",
     /** Título da secção de diferenciadores. */
-    differentiatorsTitle: "Método visível, escala controlada.",
+    differentiatorsTitle: "Preço, prazo e trabalho sem surpresas.",
   },
   servicesPage: {
     /** Título da chamada para ação. */
-    ctaTitle: "Comece pela fase em que o projeto está hoje.",
+    ctaTitle: "O seu negócio precisa de um site que trabalhe por si.",
     /** Explicação da chamada para ação. */
     ctaText:
-      "A partir do primeiro contacto, ajudamos a perceber se faz sentido arrancar por consultadoria, estudo prévio, interiores ou licenciamento.",
+      "Diga-nos o que vende e de que precisa. Respondemos com a solução, o preço e o prazo antes de começar.",
     /** Texto do botão da chamada para ação. */
-    ctaLabel: "Pedir enquadramento",
+    ctaLabel: "Pedir proposta",
   },
   contactPage: {
     /** Título do cartão do formulário. */
@@ -448,7 +493,7 @@ export const siteCopy = {
     /** Sobretítulo da secção de perguntas frequentes. */
     faqEyebrow: "Perguntas frequentes",
     /** Título da secção de perguntas frequentes. */
-    faqTitle: "Antes da primeira resposta.",
+    faqTitle: "O que precisa de saber antes de avançar.",
   },
   contactForm: {
     /** Etiqueta do campo anti-spam invisível. */
@@ -495,10 +540,10 @@ export const legalPages = {
 // site; remover ou acrescentar entradas atualiza as grelhas automaticamente.
 export const siteContent: SiteContent = {
   identity: {
-    name: "Ponto de Fuga",
-    tagline: "Projetos rigorosos para casas e espaços de trabalho",
+    name: "BrutalTech",
+    tagline: "Sites profissionais. Preço fechado. Prazo fechado.",
     description:
-      "Atelier de arquitetura e design de interiores em Matosinhos, focado em projetos residenciais e comerciais de pequena e média escala.",
+      "Empresa de tecnologia no Porto que cria sites profissionais para pequenos negócios, com preço e prazo definidos desde o início.",
     logoLight: "/images/logo-light.svg",
     logoDark: "/images/logo-dark.svg",
     favicon: "/images/favicon.svg",
@@ -506,29 +551,26 @@ export const siteContent: SiteContent = {
 
   contact: {
     email: "geral@pontodefuga.example",
-    phone: "+351 220 123 456",
+    phone: "+351 220 145 870",
     whatsapp: {
-      number: "+351 910 000 321",
+      number: "+351 912 345 678",
       defaultMessage:
-        "Olá, gostaria de falar convosco sobre um projeto de arquitetura ou interiores.",
+        "Olá, quero saber mais sobre o Site Institucional da BrutalTech.",
     },
     address: {
-      street: "Rua da Linha do Horizonte, 42, Sala 3.2",
-      postalCode: "4450-999",
-      city: "Matosinhos",
+      street: "Rua de Camões, 218, 3.º",
+      postalCode: "4000-138",
+      city: "Porto",
       country: "Portugal",
       mapEmbedUrl:
-        "https://www.google.com/maps?q=Rua%20da%20Linha%20do%20Horizonte%2042%20Matosinhos%20Portugal&output=embed",
+        "https://www.google.com/maps?q=Rua%20de%20Cam%C3%B5es%20218%204000-138%20Porto%20Portugal&output=embed",
     },
     hours: [
-      { day: "Segunda a sexta", hours: "09:30–18:30" },
-      { day: "Sábado", hours: "Por marcação" },
+      { day: "Segunda a sexta", hours: "09:00–18:00" },
+      { day: "Sábado", hours: "Encerrado" },
       { day: "Domingo", hours: "Encerrado" },
     ],
-    social: [
-      { platform: "instagram", url: "https://instagram.com/pontodefuga.example" },
-      { platform: "linkedin", url: "https://linkedin.com/company/pontodefuga-example" },
-    ],
+    social: [],
   },
 
   nav: {
@@ -541,134 +583,139 @@ export const siteContent: SiteContent = {
     ],
   },
   footer: {
-    text: "{companyName} — Arquitetura e Interiores. Atelier fictício para template institucional.",
+    text: "{companyName} — sites profissionais para pequenos negócios.",
     links: [
       { label: "Política de privacidade", href: "/politica-de-privacidade" },
       { label: "Termos", href: "/termos" },
     ],
   },
   seoDefaults: {
-    title: "{companyName} — Arquitetura e Interiores",
+    title: "{companyName} — Sites profissionais para pequenos negócios",
     description:
-      "Projetos de arquitetura, interiores e licenciamento para habitação e comércio em Matosinhos.",
-    ogImage: "/images/og/ponto-de-fuga.webp",
+      "Sites profissionais com preço fechado e prazo definido. Conheça o Site Institucional por 399€, entregue em 5 dias úteis.",
+    ogImage: "/images/og/brutaltech.webp",
   },
 
   pages: {
     home: {
       seo: {
-        title: "{companyName} — Arquitetura e Interiores",
+        title: "{companyName} — Site profissional por 399€",
         description:
-          "Atelier em Matosinhos para projetos residenciais, interiores comerciais e apoio ao licenciamento.",
+          "Site Institucional profissional por 399€, entregue em 5 dias úteis. Preço fechado, sem custos escondidos.",
       },
       hero: {
-        title: "Arquitetura clara para espaços que precisam de funcionar bem.",
+        title: "O site profissional do seu negócio por 399€.",
         subtitle:
-          "Desenvolvemos projetos residenciais e comerciais com desenho cuidado, documentação rigorosa e decisões explicadas sem ruído.",
-        ctaLabel: "Marcar reunião",
+          "Um Site Institucional completo, pronto em 5 dias úteis. Preço fechado, prazo fechado e tudo explicado sem jargão.",
+        ctaLabel: "Quero o meu site",
         ctaHref: "/contacto",
-        image: "/images/home/atelier-hero.webp",
+        image: "/images/home/brutaltech-hero.webp",
         imageAlt:
-          "Interior contemporâneo em madeira e pedra natural aberto para um pátio junto ao Atlântico",
+          "Dona de um pequeno negócio e especialista digital a rever um site num portátil",
       },
       servicesIntro: {
-        title: "Serviços principais",
+        title: "A presença digital certa para o seu negócio",
         subtitle:
-          "Do estudo inicial ao processo camarário, trabalhamos com uma estrutura simples e documentação verificável.",
+          "Comece por um site profissional e acrescente apenas o que o negócio realmente precisa.",
       },
       stats: [
-        { value: "12", label: "anos de prática em projeto" },
-        { value: "48", label: "obras acompanhadas" },
-        { value: "3", label: "áreas de serviço nucleares" },
+        { value: "27", label: "sites entregues" },
+        { value: "5 dias", label: "prazo do Site Institucional" },
+        { value: "96%", label: "clientes satisfeitos" },
       ],
       about: {
-        title: "Um atelier pequeno, com método técnico.",
+        title: "Uma equipa pequena, focada no que dá resultado.",
         text:
-          "A equipa trabalha perto do cliente e dos consultores externos para transformar condicionantes reais em soluções construíveis.",
-        ctaLabel: "Conhecer o atelier",
+          "Criamos sites claros, rápidos e fáceis de encontrar. O dono do negócio sabe sempre o que está incluído, quanto custa e quando fica pronto.",
+        ctaLabel: "Conhecer a BrutalTech",
         ctaHref: "/sobre",
       },
       finalCta: {
-        title: "Tem uma casa, loja ou escritório para repensar?",
+        title: "Está na altura de o seu negócio ter um site profissional?",
         subtitle:
-          "Envie-nos o ponto de partida: localização, objetivo e fase em que o projeto está.",
-        ctaLabel: "Falar connosco",
+          "Conte-nos o que faz. Nós respondemos com os próximos passos, sem conversa de vendedor.",
+        ctaLabel: "Pedir o meu site",
         ctaHref: "/contacto",
       },
     },
     about: {
       seo: {
-        title: "Sobre o atelier",
+        title: "Sobre a BrutalTech",
         description:
-          "Conheça a equipa, método e princípios de trabalho de {companyName} em Matosinhos.",
+          "Conheça a equipa, a história e a forma direta de trabalhar de {companyName} no Porto.",
       },
       hero: {
-        title: "Desenho, detalhe e obra no mesmo plano de trabalho.",
+        title: "Tecnologia útil para negócios reais.",
         subtitle:
-          "Somos um atelier de Matosinhos com foco em encomendas de escala contida, onde cada decisão tem impacto direto no uso diário.",
+          "Somos uma equipa do Porto que transforma bons negócios em presenças digitais profissionais, sem complicar o processo.",
       },
       history:
-        "O Ponto de Fuga nasceu em 2018 depois de vários anos de colaboração em gabinetes de arquitetura no Porto. A estrutura mantém-se pequena para garantir proximidade e responsabilidade técnica em cada projeto.",
+        "A BrutalTech nasceu em 2023, no Porto, depois de vermos demasiados pequenos negócios presos entre sites caros e soluções que nunca ficam prontas. Criámos uma equipa curta e um processo simples para entregar depressa, com qualidade e sem custos inesperados.",
       mission:
-        "Criar espaços claros, viáveis e bem documentados, equilibrando ambição de desenho, orçamento disponível e exigências legais.",
+        "Dar a pequenos negócios uma presença digital profissional, clara e acessível, com preço e prazo conhecidos antes de o trabalho começar.",
       values: [
         {
-          title: "Clareza",
+          title: "Transparência",
           description:
-            "Explicamos opções, riscos e próximos passos com linguagem direta.",
+            "O cliente conhece o preço, o prazo e o que está incluído antes de avançar.",
         },
         {
-          title: "Rigor",
+          title: "Simplicidade",
           description:
-            "Cada fase tem peças desenhadas, listas e decisões registadas.",
+            "Retiramos a complexidade técnica da conversa e deixamos apenas decisões úteis.",
         },
         {
-          title: "Proporção",
+          title: "Responsabilidade",
           description:
-            "A solução deve fazer sentido para o uso, a escala e o investimento.",
+            "Cumprimos o combinado e avisamos cedo quando algo depende do cliente.",
+        },
+        {
+          title: "Utilidade",
+          description:
+            "Cada página e cada funcionalidade têm de ajudar o negócio a ser encontrado ou contactado.",
         },
       ],
       team: [
         {
-          id: "ines-monteiro",
-          name: "Inês Monteiro",
-          role: "Arquiteta fundadora",
-          bio: "Coordena projetos de arquitetura e acompanha processos de licenciamento.",
-          photo: "/images/team/ines-monteiro.webp",
+          id: "beatriz-almeida",
+          name: "Beatriz Almeida",
+          role: "Estratégia e conteúdo",
+          bio: "Transforma a proposta de cada negócio em mensagens claras e páginas que orientam o cliente.",
+          photo: "/images/team/brutaltech-team-01.webp",
         },
         {
-          id: "rui-valente",
-          name: "Rui Valente",
-          role: "Designer de interiores",
-          bio: "Desenvolve conceitos de interiores, materiais e desenho de mobiliário fixo.",
-          photo: "/images/team/rui-valente.webp",
+          id: "diogo-martins",
+          name: "Diogo Martins",
+          role: "Desenvolvimento web",
+          bio: "Constrói sites rápidos, seguros e preparados para funcionar bem em qualquer ecrã.",
+          photo: "/images/team/brutaltech-team-02.webp",
         },
         {
-          id: "marta-cunha",
-          name: "Marta Cunha",
-          role: "Gestora de projeto",
-          bio: "Organiza prazos, documentação e comunicação entre cliente, equipa e obra.",
-          photo: "/images/team/marta-cunha.webp",
+          id: "sara-reis",
+          name: "Sara Reis",
+          role: "Design e apoio ao cliente",
+          bio: "Cuida da identidade visual, organiza cada entrega e acompanha o cliente do primeiro contacto ao lançamento.",
+          photo: "/images/team/brutaltech-team-03.webp",
         },
       ],
       differentiators: [
         {
-          id: "processo-visivel",
-          title: "Processo visível",
+          id: "preco-fechado",
+          title: "Preço fechado",
           description:
-            "O cliente sabe sempre que decisões estão em aberto e que informação falta fechar.",
+            "O Site Institucional custa 399€. O valor é acordado antes de começar e não cresce a meio.",
         },
         {
-          id: "documentacao-limpa",
-          title: "Documentação limpa",
+          id: "prazo-fechado",
+          title: "Prazo fechado",
           description:
-            "Peças escritas e desenhadas preparadas para consulta, orçamento e licenciamento.",
+            "Com os conteúdos reunidos, entregamos o pacote principal em 5 dias úteis.",
         },
         {
-          id: "escala-controlada",
-          title: "Escala controlada",
+          id: "sem-surpresas",
+          title: "Sem surpresas",
           description:
-            "Aceitamos poucos projetos em simultâneo para manter resposta técnica próxima.",
+            "Explicamos o que está incluído, o que precisamos do cliente e o que acontece depois da entrega.",
         },
       ],
     },
@@ -676,40 +723,49 @@ export const siteContent: SiteContent = {
       seo: {
         title: "Serviços",
         description:
-          "Serviços de arquitetura, interiores, consultadoria e licenciamento em Matosinhos.",
+          "Sites institucionais, lojas online, manutenção e SEO local para pequenos negócios em Portugal.",
       },
       hero: {
-        title: "Serviços para definir, desenhar e aprovar o projeto.",
+        title: "Soluções digitais que o seu negócio consegue usar.",
         subtitle:
-          "A intervenção pode começar numa ideia vaga, num imóvel em avaliação ou num processo que precisa de ser organizado.",
+          "Sem pacotes confusos nem tecnologia por explicar. Escolha o ponto de partida e saiba o que recebe.",
       },
       items: [
         {
-          id: "arquitetura",
-          icon: "DraftingCompass",
-          title: "Projeto de arquitetura",
+          id: "site-institucional",
+          icon: "Network",
+          title: "Site Institucional",
           description:
-            "Estudos prévios e projetos para habitação, lojas e pequenos escritórios.",
+            "Um site profissional por 399€, entregue em 5 dias úteis.",
           detail:
-            "Desenvolvemos o projeto desde o levantamento e estudo prévio até às peças necessárias para consulta a empreiteiros e submissão municipal, quando aplicável.",
+            "O pacote principal inclui até cinco páginas, adaptação à identidade do negócio, formulário de contacto, botão de WhatsApp, versão para telemóvel, configuração essencial para motores de pesquisa e publicação. Custa 399€ e fica pronto em 5 dias úteis depois de recebermos os conteúdos necessários.",
         },
         {
-          id: "interiores",
-          icon: "LampDesk",
-          title: "Design de interiores",
+          id: "lojas-online",
+          icon: "ClipboardCheck",
+          title: "Lojas Online",
           description:
-            "Organização espacial, materiais, iluminação e mobiliário fixo.",
+            "Venda produtos online com uma loja simples de gerir.",
           detail:
-            "Trabalhamos layouts, mapas de acabamentos, desenhos de carpintaria e seleção de elementos essenciais para tornar o espaço coerente e executável.",
+            "Criamos uma loja adaptada ao catálogo, com pagamentos, entregas e páginas de produto organizadas. O âmbito, o preço e o prazo são definidos depois de sabermos quantos produtos e integrações são necessários.",
         },
         {
-          id: "consultadoria-licenciamento",
-          icon: "FileCheck2",
-          title: "Consultadoria e licenciamento",
+          id: "manutencao-suporte",
+          icon: "Hammer",
+          title: "Manutenção e Suporte",
           description:
-            "Análise de viabilidade, apoio técnico e preparação de processos.",
+            "Atualizações, segurança e pequenas alterações sem perder tempo.",
           detail:
-            "Avaliamos condicionantes urbanísticas, identificamos riscos antes da compra ou obra e organizamos documentação para processos de licenciamento ou comunicação prévia.",
+            "Mantemos o site atualizado, verificamos o funcionamento e tratamos de alterações de conteúdo. O serviço é opcional: o site continua a ser seu e não fica preso a uma mensalidade obrigatória.",
+        },
+        {
+          id: "seo-local",
+          icon: "SearchCheck",
+          title: "SEO Local",
+          description:
+            "Ajude clientes próximos a encontrar o seu negócio nas pesquisas.",
+          detail:
+            "Organizamos as páginas para pesquisas locais, afinamos títulos e descrições e ajudamos a melhorar a informação pública do negócio. O objetivo é ser mais fácil de encontrar, sem prometer posições impossíveis de garantir.",
         },
       ],
     },
@@ -717,45 +773,52 @@ export const siteContent: SiteContent = {
       seo: {
         title: "Portefólio",
         description:
-          "Projetos residenciais e comerciais fictícios do atelier {companyName}.",
+          "Exemplos fictícios de sites para restauração, saúde, automóvel, beleza e comércio local criados por {companyName}.",
       },
       hero: {
-        title: "Projetos recentes em habitação e comércio local.",
+        title: "Sites pensados para negócios que reconhece.",
         subtitle:
-          "Uma amostra curta para testar conteúdos reais sem fechar ainda uma direção visual.",
+          "Estes casos fictícios mostram como adaptamos a mesma base sólida a objetivos e públicos diferentes.",
       },
       items: [
         {
-          id: "apartamento-leca",
-          title: "Apartamento em Leça",
-          category: "Habitação",
+          id: "restaurante-o-largo",
+          title: "Restaurante O Largo",
+          category: "Restauração",
           description:
-            "Reorganização de T2 dos anos 80 com cozinha aberta e arrumação integrada.",
-          image: "/images/portfolio/apartamento-leca.webp",
+            "Site com menu, reservas, horários e localização para um restaurante familiar no centro do Porto.",
+          image: "/images/portfolio/brutaltech-portfolio-01.webp",
         },
         {
-          id: "loja-senhora-hora",
-          title: "Loja na Senhora da Hora",
-          category: "Comércio",
+          id: "clinica-movimento-norte",
+          title: "Clínica Movimento Norte",
+          category: "Saúde",
           description:
-            "Projeto de interiores para loja de bairro com frente estreita e zona técnica compacta.",
-          image: "/images/portfolio/loja-senhora-hora.webp",
+            "Presença digital clara para apresentar fisioterapia, equipa e pedidos de marcação.",
+          image: "/images/portfolio/brutaltech-portfolio-03.webp",
         },
         {
-          id: "moradia-lavra",
-          title: "Moradia em Lavra",
-          category: "Habitação",
+          id: "oficina-motor-certo",
+          title: "Oficina Motor Certo",
+          category: "Automóvel",
           description:
-            "Estudo de ampliação com nova ligação ao jardim e revisão de circulação interior.",
-          image: "/images/portfolio/moradia-lavra.webp",
+            "Site direto com serviços, contactos rápidos e pedido de orçamento para uma oficina multimarca.",
+          image: "/images/portfolio/brutaltech-portfolio-04.webp",
         },
         {
-          id: "escritorio-matosinhos-sul",
-          title: "Escritório em Matosinhos Sul",
-          category: "Trabalho",
+          id: "salao-linha-clara",
+          title: "Salão Linha Clara",
+          category: "Beleza",
           description:
-            "Adaptação de fração para equipa de oito pessoas, com sala de reunião e copa discreta.",
-          image: "/images/portfolio/escritorio-matosinhos-sul.webp",
+            "Montra visual de serviços, preços e marcações para um cabeleireiro de bairro.",
+          image: "/images/portfolio/brutaltech-portfolio-02.webp",
+        },
+        {
+          id: "mercearia-da-vila",
+          title: "Mercearia da Vila",
+          category: "Comércio local",
+          description:
+            "Página simples para contar a história da loja, divulgar cabazes e receber encomendas por WhatsApp.",
         },
       ],
     },
@@ -763,63 +826,75 @@ export const siteContent: SiteContent = {
       seo: {
         title: "Contacto",
         description:
-          "Contacte {companyName} para discutir projetos de arquitetura e interiores em Matosinhos.",
+          "Fale com {companyName} sobre o site profissional do seu negócio e receba próximos passos claros.",
       },
       hero: {
-        title: "Conte-nos onde está o projeto e o que precisa de resolver.",
+        title: "Conte-nos o que o seu negócio precisa.",
         subtitle:
-          "Respondemos com próximos passos, informação em falta e uma estimativa clara de faseamento.",
+          "Respondemos com perguntas úteis, próximos passos e um preço claro. Sem compromisso e sem jargão.",
       },
       formLabels: {
         name: "Nome",
         email: "Email",
         phone: "Telefone",
-        message: "Mensagem",
-        submit: "Enviar pedido",
-        success: "Obrigado. Vamos responder assim que possível.",
-        error: "Não foi possível enviar. Tente novamente ou use o email direto.",
+        message: "De que precisa?",
+        submit: "Pedir contacto",
+        success: "Pedido recebido. Falamos consigo em breve.",
+        error: "Não conseguimos enviar o pedido. Tente novamente ou use o email direto.",
       },
       emailTemplate: {
-        subject: "Novo pedido para {companyName} — {senderName}",
-        heading: "Novo pedido de contacto para {companyName}",
-        nameLabel: "Nome",
-        emailLabel: "Email",
+        subject: "Novo contacto no site de {companyName} — {senderName}",
+        heading: "Novo pedido recebido em {companyName}",
+        nameLabel: "Cliente",
+        emailLabel: "Email de resposta",
         phoneLabel: "Telefone",
-        messageLabel: "Mensagem",
-        notProvided: "Não indicado",
+        messageLabel: "Pedido",
+        notProvided: "Não preenchido",
       },
       validationMessages: {
-        nameMin: "Indique o seu nome.",
-        nameMax: "Indique um nome mais curto.",
-        emailInvalid: "Indique um email válido.",
-        emailMax: "Indique um email mais curto.",
-        phoneMax: "Indique um telefone mais curto.",
-        phoneInvalid: "Indique um telefone válido.",
-        messageMin: "Escreva uma mensagem com mais algum contexto.",
-        messageMax: "Reduza a mensagem para menos de 2000 caracteres.",
+        nameMin: "Diga-nos o seu nome.",
+        nameMax: "O nome não pode ter mais de 100 caracteres.",
+        emailInvalid: "Escreva um email válido.",
+        emailMax: "O email não pode ter mais de 254 caracteres.",
+        phoneMax: "O telefone não pode ter mais de 30 caracteres.",
+        phoneInvalid: "Use apenas algarismos, espaços e os símbolos +, ( ), ponto ou hífen.",
+        messageMin: "Conte-nos um pouco mais sobre o que precisa.",
+        messageMax: "A mensagem não pode ter mais de 2000 caracteres.",
       },
       faq: [
         {
-          id: "primeira-reuniao",
-          question: "A primeira reunião tem custo?",
+          id: "o-que-inclui",
+          question: "O que inclui o Site Institucional de 399€?",
           answer:
-            "A chamada inicial de enquadramento não tem custo. Estudos técnicos ou visitas são orçamentados antes de avançar.",
+            "Inclui até cinco páginas, adaptação à sua marca, formulário de contacto, WhatsApp, versão para telemóvel, configuração essencial para pesquisas e publicação do site.",
         },
         {
-          id: "zonas",
-          question: "Trabalham fora de Matosinhos?",
+          id: "quanto-tempo",
+          question: "Quanto tempo demora?",
           answer:
-            "Sim. A maioria dos projetos fica na área do Porto, Matosinhos e Gaia, mas avaliamos outros concelhos caso a escala faça sentido.",
+            "O Site Institucional fica pronto em 5 dias úteis, contados a partir do momento em que recebemos os textos, imagens e dados necessários.",
+        },
+        {
+          id: "o-que-precisam",
+          question: "O que precisam de mim?",
+          answer:
+            "Precisamos do logótipo, contactos, serviços, algumas fotografias e informação sobre o negócio. Se os textos ainda não estiverem organizados, ajudamos a dar-lhes estrutura.",
+        },
+        {
+          id: "depois-da-entrega",
+          question: "O que acontece depois da entrega?",
+          answer:
+            "O site fica seu e entregamos os acessos necessários. Pode geri-lo de forma independente ou contratar a nossa manutenção, sem fidelização obrigatória.",
         },
       ],
     },
     notFound: {
       seo: {
         title: "Página não encontrada",
-        description: "A página pedida não existe ou foi movida.",
+        description: "Esta página não está disponível. Continue a explorar o site da BrutalTech.",
       },
-      title: "Página não encontrada",
-      message: "A página que tentou abrir não existe ou foi movida.",
+      title: "Esta página não está online.",
+      message: "O endereço pode estar errado ou a página pode ter mudado. Volte ao início e encontre o que procura.",
       ctaLabel: "Voltar ao início",
     },
   },

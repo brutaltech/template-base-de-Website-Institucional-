@@ -11,7 +11,7 @@ import {
 import type { FormEvent } from "react";
 import { sendContactMessage } from "@/app/contacto/actions";
 import { Button } from "@/components/ui/button";
-import { siteCopy } from "@/content/site";
+import { siteCopy } from "@/content";
 import type { SiteContent } from "@/content/site";
 import {
   CONTACT_FORM_FIELD_NAMES,

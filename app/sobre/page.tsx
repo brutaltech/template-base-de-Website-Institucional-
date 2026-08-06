@@ -4,7 +4,7 @@ import { PageHero } from "@/components/page-hero";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { siteContent, siteCopy } from "@/content/site";
+import { siteContent, siteCopy } from "@/content";
 import { publicAssetExists } from "@/lib/public-assets";
 import { buildPageMetadata } from "@/lib/seo";
 

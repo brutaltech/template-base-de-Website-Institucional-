@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { siteContent, siteCopy } from "@/content/site";
+import { siteContent, siteCopy } from "@/content";
 import { buildPageMetadata } from "@/lib/seo";
 
 export function generateMetadata() {

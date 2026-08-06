@@ -1,4 +1,4 @@
-import { siteContent } from "@/content/site";
+import { siteContent } from "@/content";
 import { getAddressText } from "@/lib/contact-links";
 import { absoluteUrl } from "@/lib/seo";
 

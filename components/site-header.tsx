@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Container } from "@/components/ui/container";
-import { siteContent, siteCopy } from "@/content/site";
+import { siteContent, siteCopy } from "@/content";
 
 export function SiteHeader() {
   const { identity, nav } = siteContent;

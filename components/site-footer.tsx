@@ -17,7 +17,7 @@ import {
   interpolateContentTemplate,
   siteContent,
   siteCopy,
-} from "@/content/site";
+} from "@/content";
 import type { SocialLink } from "@/content/site";
 import { getAddressText, getHoursText } from "@/lib/contact-links";
 

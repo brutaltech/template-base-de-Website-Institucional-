@@ -1,465 +1,463 @@
 import type { SiteContent } from "./site";
 
-export const stressTestSiteContent: SiteContent = {
+export const stressTestSiteContent = {
   identity: {
-    name: "Ponto de Fuga — Atelier de Arquitetura, Interiores, Consultadoria Técnica e Processos Urbanísticos de Pequena e Média Escala",
+    name: "BrutalTech — Sites, Lojas Online, SEO Local e Suporte Digital para Pequenos Negócios que Querem Crescer sem Complicações",
     tagline:
-      "Projetos residenciais e comerciais com análise técnica, detalhe de execução e acompanhamento próximo desde a primeira dúvida até à obra possível",
+      "Presença digital completa, com preço, prazo e entregáveis definidos antes de começarmos, para que saiba exatamente o que vai receber e quando fica disponível",
     description:
-      "Atelier fictício de arquitetura e design de interiores em Matosinhos, criado para stress-testar layouts institucionais com conteúdo extenso.",
+      "Empresa portuguesa de tecnologia que cria sites institucionais, lojas online e soluções de presença digital para pequenos negócios, com comunicação direta, condições claras e acompanhamento próximo.",
     logoLight: "/images/logo-light.svg",
     logoDark: "/images/logo-dark.svg",
     favicon: "/images/favicon.svg",
   },
 
   contact: {
-    email: "projetos@pontodefuga.example",
+    email: "pedidos@brutaltech.example",
     phone: "+351 220 987 654",
     whatsapp: {
       number: "+351 930 000 654",
       defaultMessage:
-        "Olá, tenho um imóvel ou espaço comercial para avaliar e gostaria de perceber como podem ajudar.",
+        "Olá, quero perceber se o pacote Site Institucional da BrutalTech é adequado para o meu negócio e o que precisam de mim para começar.",
     },
     address: {
-      street: "Travessa Técnica do Norte, 18, Piso 2, Fração B",
-      postalCode: "4450-998",
-      city: "Matosinhos",
+      street: "Rua da Indústria Digital, 18, Piso 2, Sala 204",
+      postalCode: "4000-286",
+      city: "Porto",
       country: "Portugal",
       mapEmbedUrl:
-        "https://www.google.com/maps?q=Rua%20da%20Linha%20do%20Horizonte%2042%20Matosinhos%20Portugal&output=embed",
+        "https://www.google.com/maps?q=Rua%20da%20Ind%C3%BAstria%20Digital%2018%20Porto%20Portugal&output=embed",
     },
     hours: [
       { day: "Segunda", hours: "09:00–18:30" },
       { day: "Terça", hours: "09:00–18:30" },
       { day: "Quarta", hours: "09:00–18:30" },
       { day: "Quinta", hours: "09:00–18:30" },
-      { day: "Sexta", hours: "09:00–17:00" },
-      { day: "Sábado", hours: "10:00–13:00 por marcação" },
-      { day: "Domingo", hours: "Encerrado" },
+      { day: "Sexta", hours: "09:00–17:30" },
+      { day: "Sábado", hours: "10:00–13:00, apenas por marcação" },
+      { day: "Domingo e feriados", hours: "Encerrado" },
     ],
-    social: [
-      { platform: "instagram", url: "https://instagram.com/pontodefuga.example" },
-      { platform: "facebook", url: "https://facebook.com/pontodefuga.example" },
-      { platform: "linkedin", url: "https://linkedin.com/company/pontodefuga-example" },
-      { platform: "youtube", url: "https://youtube.com/@pontodefuga-example" },
-      { platform: "tiktok", url: "https://tiktok.com/@pontodefuga-example" },
-    ],
+    social: [],
   },
 
   nav: {
     links: [
-      { label: "Início", href: "/" },
-      { label: "Sobre o atelier", href: "/sobre" },
-      { label: "Serviços técnicos", href: "/servicos" },
-      { label: "Portefólio selecionado", href: "/portfolio" },
-      { label: "Contacto e briefing", href: "/contacto" },
+      { label: "Início e pacote principal", href: "/" },
+      { label: "Empresa, método e equipa", href: "/sobre" },
+      { label: "Serviços digitais disponíveis", href: "/servicos" },
+      { label: "Sites entregues a pequenos negócios", href: "/portfolio" },
+      { label: "Pedir proposta e esclarecer dúvidas", href: "/contacto" },
     ],
   },
   footer: {
-    text: "Ponto de Fuga — Atelier de Arquitetura, Interiores, Consultadoria Técnica e Processos Urbanísticos. Conteúdo fictício para testes de template.",
+    text: "{companyName} — Presença digital prática para pequenos negócios portugueses, com preço fechado, prazo definido e apoio de pessoas reais.",
     links: [
-      { label: "Política de privacidade", href: "/politica-de-privacidade" },
-      { label: "Termos e condições", href: "/termos" },
-      { label: "Livro de reclamações", href: "/legal/livro-de-reclamacoes" },
-      { label: "Mapa do site", href: "/mapa" },
+      { label: "Política de privacidade e tratamento de dados", href: "/politica-de-privacidade" },
+      { label: "Termos e condições de utilização", href: "/termos" },
     ],
   },
   seoDefaults: {
-    title:
-      "Ponto de Fuga — Arquitetura, Interiores, Consultadoria Técnica e Licenciamento",
+    title: "{companyName} — Sites Profissionais para Pequenos Negócios",
     description:
-      "Template institucional com conteúdo longo para testar páginas de arquitetura, interiores, licenciamento, equipa, portefólio e contacto.",
-    ogImage: "/images/og/ponto-de-fuga.webp",
+      "Sites institucionais por 399 €, entregues em cinco dias úteis, além de lojas online, SEO local, manutenção e apoio digital para pequenos negócios.",
+    ogImage: "/images/og/brutaltech.webp",
   },
 
   pages: {
     home: {
       seo: {
-        title:
-          "Ponto de Fuga — Atelier de Arquitetura e Interiores em Matosinhos",
+        title: "{companyName} — Site Profissional por 399 € em 5 Dias Úteis",
         description:
-          "Projetos residenciais, comerciais, consultadoria técnica e licenciamento com conteúdo extenso para stress-test de layout.",
-        ogImage: "/images/og/ponto-de-fuga.webp",
+          "Uma presença digital clara, rápida e pronta para receber clientes: preço fechado, prazo fechado e acompanhamento direto desde o primeiro conteúdo até à publicação.",
+        ogImage: "/images/og/brutaltech.webp",
       },
       hero: {
         title:
-          "Arquitetura, interiores e licenciamento para espaços pequenos, complexos e cheios de condicionantes reais.",
+          "O site profissional que o seu pequeno negócio precisa, por 399 €, entregue em cinco dias úteis e sem custos escondidos.",
         subtitle:
-          "Trabalhamos com clientes que precisam de transformar um imóvel, uma loja, um escritório ou uma dúvida técnica num processo claro, faseado e documentado, sem perder de vista orçamento, prazos e exigências municipais.",
-        ctaLabel: "Preparar briefing técnico",
+          "Reunimos páginas essenciais, adaptação a telemóvel, formulário de contacto, mapa, informação legal e preparação para pesquisa num pacote com tudo explicado antes de avançar. O resultado é um site rápido, credível e fácil de manter, sem reuniões intermináveis nem linguagem técnica vazia.",
+        ctaLabel: "Pedir o meu site por 399 €",
         ctaHref: "/contacto",
-        image: "/images/home/atelier-hero.webp",
+        image: "/images/home/brutaltech-hero.webp",
         imageAlt:
-          "Interior contemporâneo aberto para um pátio junto ao Atlântico",
+          "Equipa da BrutalTech a rever num ecrã o site de um pequeno negócio antes da publicação",
       },
       servicesIntro: {
-        title: "Serviços que cobrem as fases críticas do projeto",
+        title:
+          "Oito formas de resolver a presença digital, desde o primeiro site até ao suporte contínuo",
         subtitle:
-          "Da primeira avaliação do imóvel à revisão de detalhes de obra, cada serviço tem entregáveis definidos e decisões registadas.",
+          "Pode começar pelo pacote de 399 € e acrescentar apenas o que fizer sentido: venda online, páginas de campanha, pesquisa local, conteúdos, integrações ou manutenção.",
       },
       stats: [
-        { value: "120+", label: "estudos, desenhos e peças técnicas produzidos" },
-        { value: "98%", label: "projetos entregues dentro do faseamento acordado" },
-        { value: "8", label: "serviços preparados para combinações modulares" },
-        { value: "6", label: "perfis de equipa para testar grelhas longas" },
-        { value: "7", label: "casos de portefólio com imagens e descrições variáveis" },
+        { value: "27", label: "sites de pequenos negócios entregues e publicados" },
+        { value: "5 dias", label: "prazo do pacote Site Institucional após receção dos conteúdos" },
+        { value: "399 €", label: "preço fechado do produto principal, sem extras inesperados" },
+        { value: "4,9/5", label: "avaliação média atribuída pelos clientes após a entrega" },
+        { value: "8", label: "serviços digitais combináveis sem mudar de fornecedor" },
       ],
       about: {
         title:
-          "Uma estrutura pequena para decisões de projeto que não se perdem pelo caminho.",
+          "Uma equipa pequena para donos de negócios que querem respostas concretas e decisões rápidas.",
         text:
-          "O atelier trabalha com um núcleo interno reduzido e consultores externos quando a escala pede especialidades. Esta opção mantém a comunicação direta, reduz camadas de aprovação e permite explicar cada mudança no desenho com base técnica.",
-        ctaLabel: "Ver método e equipa",
+          "A BrutalTech junta estratégia, conteúdos, design, desenvolvimento e acompanhamento numa equipa que fala diretamente consigo. Traduzimos o que o negócio faz em páginas simples de entender, mostramos o que está incluído e tratamos da parte técnica sem transformar cada decisão numa reunião.",
+        ctaLabel: "Conhecer a equipa e o método de trabalho",
         ctaHref: "/sobre",
       },
       finalCta: {
         title:
-          "Quando o imóvel levanta mais perguntas do que respostas, vale a pena começar pela análise.",
+          "Se os clientes procuram o seu negócio e encontram informação incompleta, está na altura de ter um site que trabalha por si.",
         subtitle:
-          "Envie plantas, fotografias, morada aproximada e objetivo. Respondemos com uma proposta de próximos passos, indicando se faz sentido começar por consultadoria, estudo prévio ou processo de licenciamento.",
-        ctaLabel: "Enviar informação inicial",
+          "Diga-nos o que vende, onde trabalha e que contacto quer receber. Confirmamos o enquadramento, enviamos a lista de conteúdos necessária e marcamos a data de entrega antes de começar.",
+        ctaLabel: "Receber os próximos passos",
         ctaHref: "/contacto",
       },
     },
     about: {
       seo: {
-        title: "Sobre o Ponto de Fuga",
+        title: "Sobre a equipa da {companyName}",
         description:
-          "História, missão, valores, equipa e diferenciadores do atelier fictício Ponto de Fuga em Matosinhos.",
+          "Conheça a história, o método, os princípios e a equipa alargada que cria presenças digitais claras para pequenos negócios portugueses.",
       },
       hero: {
         title:
-          "Um atelier desenhado para projetos onde escala pequena não significa baixa complexidade.",
+          "Tecnologia útil, explicada sem rodeios e entregue com responsabilidades claras em cada fase.",
         subtitle:
-          "Muitos dos nossos casos começam com apartamentos antigos, lojas estreitas, frações com histórico irregular ou espaços de trabalho que precisam de funcionar melhor sem obra excessiva.",
+          "Somos uma empresa jovem do Porto criada para dar a pequenos negócios o tipo de presença digital que normalmente parece cara, demorada ou demasiado complicada.",
       },
       history:
-        "O Ponto de Fuga foi criado em 2018 por profissionais que vinham de gabinetes de arquitetura, interiores e gestão de obra. O objetivo era montar uma prática mais direta para clientes particulares e pequenos negócios, com foco em documentação clara e decisões construtivas. Ao longo dos anos, o atelier consolidou um método em que levantamento, análise regulamentar, desenho e orçamento preliminar avançam de forma coordenada.",
+        "A BrutalTech nasceu em 2022, depois de três profissionais perceberem que muitos restaurantes, clínicas, oficinas, lojas e prestadores de serviços continuavam dependentes de páginas desatualizadas ou apenas das redes sociais. Os primeiros projetos mostraram um padrão: o problema raramente era falta de vontade, mas propostas confusas, preços imprevisíveis e processos que exigiam demasiado tempo ao cliente. A equipa transformou essa experiência num pacote simples, repetível e transparente, mantendo espaço para adaptar conteúdos, identidade e necessidades reais de cada negócio.",
       mission:
-        "A missão é produzir projetos viáveis e bem explicados, capazes de resistir ao confronto com orçamento, licenciamento, fornecedores e obra. Não procuramos inflacionar a intervenção: procuramos que cada decisão tenha utilidade, coerência espacial e enquadramento técnico.",
+        "A nossa missão é tornar uma presença digital profissional acessível a quem está ocupado a gerir um negócio. Fazemo-lo com preços conhecidos antes do arranque, prazos que começam quando recebemos os conteúdos, linguagem clara em todas as decisões e uma entrega que o cliente consegue compreender, usar e continuar a desenvolver.",
       values: [
         {
-          title: "Rigor antes da imagem",
+          title: "Clareza comercial antes do arranque",
           description:
-            "A apresentação visual só interessa quando está apoiada por medidas, regras, materiais e decisões possíveis de executar.",
+            "Explicamos o que está incluído, o que depende do cliente, quando começa o prazo e que pedidos ficam fora do pacote, sem letras pequenas nem surpresas na fatura.",
         },
         {
-          title: "Comunicação direta",
+          title: "Prazos que significam datas reais",
           description:
-            "Preferimos linguagem concreta, com riscos assumidos e próximos passos claros, em vez de promessas vagas.",
+            "O calendário é confirmado quando os conteúdos chegam, cada revisão tem uma janela definida e qualquer alteração ao plano é comunicada com impacto e nova data.",
         },
         {
-          title: "Responsabilidade de escala",
+          title: "Decisões guiadas pelo negócio",
           description:
-            "A solução deve respeitar o investimento, o tempo disponível e a capacidade real de obra.",
+            "Cada página, botão e mensagem deve ajudar alguém a perceber o serviço, confiar na empresa e dar o próximo passo; o resto é distração.",
         },
         {
-          title: "Memória do processo",
+          title: "Suporte depois da publicação",
           description:
-            "Registamos decisões, versões e condicionantes para evitar discussões repetidas e perdas de informação.",
+            "A entrega não termina numa pasta de ficheiros: deixamos acessos organizados, instruções claras e opções de apoio para atualizações, dúvidas e crescimento futuro.",
         },
       ],
       team: [
         {
-          id: "ines-monteiro",
-          name: "Inês Monteiro",
-          role: "Arquiteta fundadora e coordenadora de projeto",
-          bio: "Coordena estudos prévios, projetos de arquitetura e processos de licenciamento. Tem experiência em reabilitação leve, alterações de uso e compatibilização entre desenho, orçamento e requisitos municipais. No atelier, acompanha especialmente as fases em que uma decisão espacial precisa de ser traduzida em peças técnicas claras.",
-          photo: "/images/team/ines-monteiro.webp",
+          id: "beatriz-sousa",
+          name: "Beatriz Sousa",
+          role: "Cofundadora e responsável de produto digital",
+          bio: "Transforma objetivos comerciais em páginas, prioridades e entregáveis concretos. Coordena o pacote Site Institucional, conduz a reunião inicial e garante que preço, prazo, conteúdos em falta e critérios de aprovação ficam claros para o cliente e para a equipa antes do primeiro dia de produção.",
+          photo: "/images/team/brutaltech-team-01.webp",
         },
         {
-          id: "rui-valente",
-          name: "Rui Valente",
-          role: "Designer de interiores e detalhe de mobiliário",
-          bio: "Trabalha layouts interiores, sistemas de arrumação, mapas de acabamentos e desenho de peças fixas. O seu foco está em tornar o espaço legível no uso diário, evitando soluções decorativas que criem problemas de manutenção, orçamento ou execução.",
-          photo: "/images/team/rui-valente.webp",
+          id: "miguel-rocha",
+          name: "Miguel Rocha",
+          role: "Cofundador e responsável técnico",
+          bio: "Constrói e publica sites rápidos, seguros e adaptados a diferentes ecrãs. Também trata de domínios, formulários, integrações e verificações finais, traduzindo limitações técnicas em escolhas simples para que o cliente não tenha de dominar ferramentas ou siglas.",
+          photo: "/images/team/brutaltech-team-02.webp",
         },
         {
-          id: "marta-cunha",
-          name: "Marta Cunha",
-          role: "Gestora de projeto e comunicação com cliente",
-          bio: "Organiza calendário, documentação, pedidos pendentes e comunicação entre cliente, equipa técnica e fornecedores. Garante que as decisões críticas ficam registadas e que cada fase começa com informação suficiente para avançar sem retrabalho desnecessário.",
+          id: "leonor-faria",
+          name: "Leonor Faria",
+          role: "Conteúdos, SEO local e experiência do cliente",
+          bio: "Ajuda a organizar informação dispersa em textos que clientes reais entendem. Revê títulos, serviços, perguntas frequentes e dados locais, acompanha a recolha de materiais e mantém a comunicação diária curta, objetiva e orientada para desbloquear a próxima entrega.",
+          photo: "/images/team/brutaltech-team-03.webp",
         },
         {
-          id: "tiago-nobre",
-          name: "Tiago Nobre",
-          role: "Arquiteto júnior",
-          bio: "Apoia levantamentos, modelação, desenhos de execução e preparação de peças para consulta. Tem especial atenção à consistência gráfica e à leitura rápida das peças técnicas por quem vai orçamentar ou executar.",
+          id: "diogo-martins",
+          name: "Diogo Martins",
+          role: "Design de interfaces e sistemas visuais",
+          bio: "Adapta cores, tipografia, fotografia e hierarquia à identidade de cada negócio, sem sacrificar leitura ou velocidade. Trabalha especialmente os casos em que a marca ainda tem poucos materiais e é preciso construir consistência a partir de um logótipo, uma montra ou um conjunto pequeno de referências.",
         },
         {
-          id: "sofia-almeida",
-          name: "Sofia Almeida",
-          role: "Consultora de materiais e acabamentos",
-          bio: "Pesquisa materiais, sistemas de revestimento e soluções de iluminação adequadas a uso intensivo, manutenção simples e orçamento controlado. Ajuda a transformar intenções de ambiente em opções específicas, comparáveis e compráveis.",
+          id: "carolina-lopes",
+          name: "Carolina Lopes",
+          role: "Lojas online e operações digitais",
+          bio: "Organiza catálogos, pagamentos, entregas e emails de compra para que uma loja não seja apenas visualmente convincente, mas também simples de operar no dia a dia. Testa percursos de compra, documenta tarefas recorrentes e prepara a equipa do cliente para gerir encomendas com autonomia.",
         },
         {
-          id: "joao-serra",
-          name: "João Serra",
-          role: "Acompanhamento de obra e fornecedores",
-          bio: "Faz visitas técnicas, regista pontos críticos em obra e articula pedidos de esclarecimento com empreiteiros e fornecedores. A sua intervenção é especialmente útil quando o projeto entra na fase em que desenhos, materiais e decisões de orçamento precisam de convergir.",
+          id: "andre-pinto",
+          name: "André Pinto",
+          role: "Manutenção, qualidade e suporte ao cliente",
+          bio: "Acompanha atualizações, cópias de segurança, monitorização e pedidos após a publicação. Antes de cada entrega verifica ligações, formulários, conteúdo, comportamento em telemóvel e situações de erro, registando o que foi testado e o que precisa de confirmação do cliente.",
         },
       ],
       differentiators: [
         {
-          id: "analise-inicial",
-          title: "Análise inicial documentada",
+          id: "preco-fechado",
+          title: "Preço fechado antes de começar",
           description:
-            "Antes de desenhar em detalhe, identificamos condicionantes legais, técnicas e orçamentais.",
+            "O pacote principal custa 399 € e inclui uma lista objetiva de páginas, funcionalidades, revisões e tarefas de publicação.",
         },
         {
-          id: "pecas-claras",
-          title: "Peças técnicas preparadas para uso real",
+          id: "prazo-fechado",
+          title: "Cinco dias úteis com ponto de partida definido",
           description:
-            "Desenhos, mapas e notas são produzidos para apoiar decisões, orçamentos e obra.",
+            "O prazo começa quando recebemos os conteúdos essenciais e termina numa data de entrega confirmada por escrito.",
         },
         {
-          id: "reunioes-com-objetivo",
-          title: "Reuniões com objetivo definido",
+          id: "sem-surpresas",
+          title: "Pedidos extra separados do compromisso inicial",
           description:
-            "Cada reunião fecha dúvidas concretas e termina com responsáveis, datas e informação em falta.",
+            "Se surgir uma necessidade fora do pacote, explicamos alternativas, custo e impacto no prazo antes de executar qualquer trabalho adicional.",
         },
         {
-          id: "rede-ajustada",
-          title: "Rede técnica ajustada à escala",
+          id: "entrega-acompanhada",
+          title: "Publicação, acessos e instruções incluídos",
           description:
-            "Chamamos especialidades quando acrescentam segurança ou são exigidas, sem aumentar a equipa por hábito.",
+            "O site é entregue online, com os acessos organizados e uma passagem clara pelo que pode atualizar e pelo apoio disponível depois.",
         },
       ],
     },
     services: {
       seo: {
-        title: "Serviços técnicos",
+        title: "Serviços digitais para pequenos negócios",
         description:
-          "Lista extensa de serviços de arquitetura, interiores, consultadoria, licenciamento e obra para stress-test de template.",
+          "Oito serviços da {companyName}: sites institucionais, lojas online, manutenção, SEO local, páginas de campanha, conteúdos, integrações e recuperação de sites.",
       },
       hero: {
         title:
-          "Serviços independentes, combináveis e preparados para diferentes fases de decisão.",
+          "Comece pelo site de que precisa hoje e acrescente apenas o que resolve um problema real do negócio.",
         subtitle:
-          "Pode entrar com uma casa por comprar, uma loja já arrendada, uma obra parada ou apenas a necessidade de perceber se uma alteração é legalmente viável.",
+          "O pacote Site Institucional é o ponto de partida mais procurado, mas a mesma equipa pode tratar da venda online, da pesquisa local, de campanhas, integrações e manutenção sem obrigar a coordenar vários fornecedores.",
       },
       items: [
         {
-          id: "projeto-arquitetura",
-          icon: "DraftingCompass",
-          title: "Projeto de arquitetura",
-          description:
-            "Estudo, anteprojeto e peças técnicas para habitação e comércio.",
-          detail:
-            "Inclui levantamento, análise de condicionantes, estudo prévio, desenvolvimento de solução, peças desenhadas e apoio na preparação de documentação para consulta, licenciamento ou comunicação prévia.",
-        },
-        {
-          id: "reabilitacao-apartamentos",
-          icon: "Hammer",
-          title: "Reabilitação de apartamentos",
-          description:
-            "Reorganização de frações existentes com foco em uso, luz e arrumação.",
-          detail:
-            "Avaliamos estrutura existente, redes, limitações de condomínio, entradas de luz e prioridades de investimento para propor intervenções proporcionadas à idade e potencial do imóvel.",
-        },
-        {
-          id: "design-interiores",
-          icon: "LampDesk",
-          title: "Design de interiores",
-          description:
-            "Layouts, materiais, iluminação, mobiliário fixo e ambiente geral.",
-          detail:
-            "Desenvolvemos plantas de organização, referências controladas, mapas de materiais, desenhos de carpintaria e compatibilização entre intenção visual, manutenção e execução.",
-        },
-        {
-          id: "consultadoria-pre-compra",
-          icon: "SearchCheck",
-          title: "Consultadoria pré-compra",
-          description:
-            "Avaliação rápida de potencial, riscos e custos prováveis antes da decisão.",
-          detail:
-            "Analisamos plantas, fotografias, documentação disponível e enquadramento urbanístico para ajudar a perceber se o imóvel permite a intervenção pretendida.",
-        },
-        {
-          id: "licenciamento",
+          id: "site-institucional",
           icon: "FileCheck2",
-          title: "Licenciamento municipal",
+          title: "Site Institucional — pacote principal por 399 €",
           description:
-            "Preparação, organização e acompanhamento de processos camarários.",
+            "Um site profissional, rápido e preparado para receber contactos, entregue em cinco dias úteis.",
           detail:
-            "Reunimos peças necessárias, articulamos especialidades quando aplicável e acompanhamos respostas a pedidos de elementos ou esclarecimentos técnicos.",
+            "Inclui página inicial, apresentação da empresa, serviços, exemplos de trabalho, contacto, informação legal, adaptação a telemóvel, formulário, mapa, ligações sociais, preparação básica para pesquisa e publicação. O preço é 399 € e o prazo de cinco dias úteis começa após recebermos textos, contactos, logótipo e imagens essenciais. Inclui uma ronda de revisão dentro do âmbito acordado e uma entrega acompanhada com acessos organizados.",
         },
         {
-          id: "levantamentos",
-          icon: "Ruler",
-          title: "Levantamentos e medições",
+          id: "lojas-online",
+          icon: "LampDesk",
+          title: "Lojas Online com catálogo, pagamentos e operação preparada",
           description:
-            "Registo métrico e fotográfico para arrancar com dados fiáveis.",
+            "Venda produtos ou vales online com um processo simples para clientes e para quem gere encomendas.",
           detail:
-            "Fazemos medições no local, identificação de elementos fixos, registo fotográfico e desenhos base para reduzir incerteza nas fases seguintes.",
+            "Organizamos categorias, páginas de produto, carrinho, pagamentos, métodos de entrega, emails transacionais e informação legal. Antes de publicar testamos compras completas e mostramos à equipa como atualizar produtos, acompanhar encomendas, gerir stock e resolver as situações mais frequentes sem depender de suporte para cada alteração.",
         },
         {
-          id: "acompanhamento-obra",
+          id: "manutencao-suporte",
           icon: "ClipboardCheck",
-          title: "Acompanhamento de obra",
+          title: "Manutenção, atualizações e suporte com resposta definida",
           description:
-            "Visitas técnicas e apoio à resolução de dúvidas durante execução.",
+            "Mantenha o site atualizado, protegido e acompanhado sem ter de descobrir o problema sozinho.",
           detail:
-            "Acompanhamos pontos críticos, respondemos a pedidos de esclarecimento e registamos decisões de obra que impactam desenho, custo ou prazo.",
+            "Os planos podem incluir atualizações técnicas, cópias de segurança, monitorização, pequenas alterações de conteúdo e um canal de suporte com tempos de resposta conhecidos. Enviamos um resumo do trabalho realizado e avisamos quando um pedido ultrapassa o plano, antes de propor qualquer custo adicional.",
         },
         {
-          id: "coordenacao-especialidades",
-          icon: "Network",
-          title: "Coordenação de especialidades",
+          id: "seo-local",
+          icon: "SearchCheck",
+          title: "SEO Local e presença coerente nos resultados de pesquisa",
           description:
-            "Articulação com estabilidade, águas, térmica, acústica e segurança.",
+            "Ajude clientes próximos a encontrar serviços, horários, contactos e localização sem informação contraditória.",
           detail:
-            "Quando o projeto exige equipas externas, ajudamos a coordenar entradas, compatibilizar peças e manter uma linha de decisão coerente.",
+            "Revemos as pesquisas relevantes para a zona, títulos e descrições das páginas, dados de contacto, perfil de negócio, perguntas frequentes e consistência entre diretórios. O trabalho é apresentado como melhorias concretas e prioridades mensuráveis, sem prometer posições garantidas ou resultados instantâneos.",
+        },
+        {
+          id: "paginas-campanha",
+          icon: "DraftingCompass",
+          title: "Páginas de campanha para uma oferta, lançamento ou marcação",
+          description:
+            "Uma página focada numa ação clara, pronta para anúncios, redes sociais, eventos ou campanhas sazonais.",
+          detail:
+            "Estruturamos proposta, benefícios, prova, dúvidas, formulário e confirmação em torno de um único objetivo. A página é adaptada à identidade existente, medida com os indicadores acordados e testada em telemóvel antes de receber tráfego pago ou ser divulgada aos clientes.",
+        },
+        {
+          id: "conteudo-estrutura",
+          icon: "Ruler",
+          title: "Conteúdos e organização da mensagem comercial",
+          description:
+            "Transforme notas, brochuras e explicações repetidas em páginas que respondem às dúvidas certas.",
+          detail:
+            "Entrevistamos quem conhece o negócio, reunimos materiais existentes e organizamos serviços, diferenciação, processo, perguntas frequentes e chamadas para ação. O texto mantém o tom da empresa, evita jargão que não ajuda a vender e fica preparado para revisão por quem detém a informação final.",
+        },
+        {
+          id: "integracoes-automacoes",
+          icon: "Network",
+          title: "Integrações de formulários, marcações, email e ferramentas do negócio",
+          description:
+            "Ligue o site às ferramentas que já usa e reduza cópias manuais de pedidos, contactos ou marcações.",
+          detail:
+            "Analisamos o percurso desde a ação do visitante até à pessoa responsável pela resposta. Podemos ligar formulários, agendas, listas de email, sistemas de atendimento e notificações, documentando acessos e limites para que uma automação útil não se transforme numa dependência difícil de manter.",
+        },
+        {
+          id: "recuperacao-site",
+          icon: "Hammer",
+          title: "Recuperação e reorganização de sites lentos, partidos ou desatualizados",
+          description:
+            "Resolva erros visíveis e preserve o conteúdo útil antes de decidir entre reparar ou substituir.",
+          detail:
+            "Fazemos um diagnóstico do estado atual, identificamos riscos de acesso, conteúdos a preservar, ligações partidas e problemas em telemóvel. Depois apresentamos uma escolha clara entre correção faseada e reconstrução, com prioridades, preço e consequências explicadas antes de mexer no site que está online.",
         },
       ],
     },
     portfolio: {
       seo: {
-        title: "Portefólio completo",
+        title: "Portefólio de sites para negócios locais",
         description:
-          "Sete projetos fictícios de habitação, comércio e trabalho para testar grelhas e cartões de portefólio.",
+          "Sete projetos fictícios da {companyName} para restauração, saúde, serviços automóveis, beleza, comércio, formação e turismo, com imagens e fallbacks.",
       },
       hero: {
         title:
-          "Casos fictícios com comprimentos diferentes, categorias variadas e imagens opcionais.",
+          "Negócios reconhecíveis, problemas concretos e sites construídos para facilitar o próximo contacto ou compra.",
         subtitle:
-          "Este conjunto foi escrito para forçar quebras de título, alturas de cartões, descrições longas e ausência de imagem em componentes futuros.",
+          "Este conjunto de teste combina títulos extensos, categorias diferentes, descrições com vários comprimentos, cinco projetos com fotografia e dois casos sem imagem para validar o fallback visual.",
       },
       items: [
         {
-          id: "apartamento-leca",
-          title: "Apartamento em Leça com cozinha aberta e corredor transformado em arrumação técnica",
-          category: "Habitação",
-          description:
-            "Reorganização de apartamento T2 dos anos 80, com demolições controladas, melhoria da relação entre sala e cozinha e desenho de armários para resolver falta de arrumação.",
-          image: "/images/portfolio/apartamento-leca.webp",
-        },
-        {
-          id: "loja-senhora-hora",
-          title: "Loja de serviços na Senhora da Hora",
-          category: "Comércio",
-          description:
-            "Interiores para loja de frente estreita, incluindo receção, atendimento rápido, zona técnica oculta e materiais resistentes a uso diário.",
-          image: "/images/portfolio/loja-senhora-hora.webp",
-        },
-        {
-          id: "moradia-lavra",
-          title: "Ampliação de moradia em Lavra",
-          category: "Habitação",
-          description:
-            "Estudo prévio para ampliar zona social, melhorar acesso ao jardim e clarificar a separação entre áreas técnicas e zonas de estar.",
-        },
-        {
-          id: "escritorio-matosinhos-sul",
-          title: "Escritório compacto em Matosinhos Sul",
-          category: "Trabalho",
-          description:
-            "Conversão de fração em pequeno escritório com oito postos, sala de reunião informal, copa discreta e armazenamento fechado.",
-          image: "/images/portfolio/escritorio-matosinhos-sul.webp",
-        },
-        {
-          id: "clinica-ramalde",
-          title: "Clínica de fisioterapia em Ramalde",
-          category: "Saúde",
-          description:
-            "Organização de receção, gabinetes e zona de exercício com atenção a circulação, privacidade visual e limpeza dos percursos.",
-          image: "/images/portfolio/moradia-lavra.webp",
-        },
-        {
-          id: "estudio-bonfim",
-          title: "Estúdio no Bonfim",
-          category: "Alojamento",
-          description:
-            "Revisão de layout para estúdio pequeno, com cozinha linear, banho compacto e mobiliário fixo capaz de separar funções sem fechar o espaço.",
-          image: "/images/portfolio/apartamento-leca.webp",
-        },
-        {
-          id: "cafe-matosinhos-mercado",
-          title: "Café junto ao mercado municipal de Matosinhos",
+          id: "tasca-da-praca",
+          title: "Tasca da Praça — menu, reservas de grupo e horários especiais num site fácil de consultar à porta do restaurante",
           category: "Restauração",
           description:
-            "Estudo de interiores e percurso de atendimento para espaço com operação curta ao almoço e necessidade de manutenção simples.",
+            "Site institucional para um restaurante familiar, com menus atualizáveis, informação sobre alergénios, fotografias do espaço, formulário para grupos e chamadas rápidas para telefone e mapa em telemóvel.",
+          image: "/images/portfolio/brutaltech-portfolio-01.webp",
+        },
+        {
+          id: "clinica-viva-matosinhos",
+          title: "Clínica Viva Matosinhos — apresentação simples de especialidades e pedidos de primeira consulta",
+          category: "Saúde",
+          description:
+            "Reorganização dos serviços por necessidade do paciente, perfis da equipa, respostas sobre preparação da consulta e ligação ao sistema externo de marcações, com especial cuidado na clareza da informação.",
+          image: "/images/portfolio/brutaltech-portfolio-03.webp",
+        },
+        {
+          id: "oficina-norte-motor",
+          title: "Norte Motor — oficina multimarca com pedidos de orçamento que já chegam com a informação necessária",
+          category: "Automóvel",
+          description:
+            "Novo site com serviços, zonas atendidas, contactos de emergência e formulário orientado para matrícula, modelo, problema e disponibilidade, reduzindo trocas de mensagens antes do agendamento.",
+          image: "/images/portfolio/brutaltech-portfolio-04.webp",
+        },
+        {
+          id: "studio-corte-cor",
+          title: "Studio Corte & Cor — cabeleireiro de bairro com preços claros, galeria consistente e marcação em poucos passos",
+          category: "Beleza e bem-estar",
+          description:
+            "Presença digital criada a partir de materiais dispersos nas redes sociais, reunindo serviços, intervalos de preço, equipa, cuidados antes da visita e acesso direto à agenda online.",
+          image: "/images/portfolio/brutaltech-portfolio-02.webp",
+        },
+        {
+          id: "mercearia-raiz",
+          title: "Mercearia Raiz — catálogo online de cabazes locais com recolha, entrega e datas de encomenda sem ambiguidades",
+          category: "Comércio local",
+          description:
+            "Loja online compacta com produtos sazonais, opções de cabaz, códigos de zona para entrega e mensagens automáticas que explicam quando a encomenda fica pronta para recolha ou distribuição.",
+          image: "/images/portfolio/brutaltech-portfolio-03.webp",
+        },
+        {
+          id: "academia-contas-claras",
+          title: "Academia Contas Claras — cursos práticos para empresários que precisam de compreender números sem voltar à escola",
+          category: "Formação",
+          description:
+            "Página de lançamento com programa detalhado, perfis dos formadores, calendário, perguntas frequentes, testemunhos e lista de espera para a edição seguinte. Este item não define imagem para testar o fallback do cartão.",
+        },
+        {
+          id: "casas-do-rio-verde",
+          title: "Casas do Rio Verde — alojamento rural com comparação de unidades, disponibilidade externa e guia completo de chegada",
+          category: "Turismo",
+          description:
+            "Site bilingue orientado para famílias, com diferenças entre casas, regras importantes, atividades próximas e ligação ao motor de reservas. A ausência intencional de imagem valida um segundo fallback na grelha.",
         },
       ],
     },
     contact: {
       seo: {
-        title: "Contacto e briefing",
+        title: "Pedir proposta e esclarecer o pacote Site Institucional",
         description:
-          "Formulário e perguntas frequentes para contacto com o atelier fictício Ponto de Fuga.",
+          "Contacte a {companyName} para confirmar se o pacote de 399 € e cinco dias úteis responde ao seu negócio ou para enquadrar outro serviço digital.",
       },
       hero: {
         title:
-          "Quanto melhor for o ponto de partida, mais útil será a primeira resposta.",
+          "Diga-nos o que o seu negócio vende, quem precisa de chegar ao site e que resultado quer melhorar primeiro.",
         subtitle:
-          "Partilhe localização, fotografias, plantas, objetivo, prazo aproximado e dúvidas principais. Não precisa de ter tudo fechado: basta indicar o que já sabe e o que ainda está em aberto.",
+          "Não precisa de preparar um documento técnico. Indique o nome do negócio, serviços principais, localização, site atual se existir e prazo desejado; respondemos com enquadramento, informação em falta e próximos passos concretos.",
       },
       formLabels: {
-        name: "Nome completo",
-        email: "Email para resposta",
-        phone: "Telefone ou WhatsApp",
-        message: "Mensagem, contexto do imóvel e objetivo principal",
-        submit: "Enviar briefing",
+        name: "Nome completo da pessoa responsável pelo pedido",
+        email: "Email onde quer receber a resposta e a proposta",
+        phone: "Telefone ou WhatsApp para esclarecimentos rápidos",
+        message: "Conte-nos sobre o negócio, o site atual e o resultado que procura",
+        submit: "Enviar pedido detalhado à BrutalTech",
         success:
-          "Recebemos a informação. Vamos analisar e responder com próximos passos.",
+          "Pedido recebido. Vamos rever a informação e responder com o enquadramento e os próximos passos.",
         error:
-          "O envio falhou. Pode tentar novamente ou escrever diretamente para o email indicado.",
+          "Não conseguimos enviar o pedido. Tente novamente ou escreva diretamente para o email apresentado nesta página.",
       },
       emailTemplate: {
         subject: "Novo pedido para {companyName} — {senderName}",
-        heading: "Novo pedido de contacto para {companyName}",
-        nameLabel: "Nome",
-        emailLabel: "Email",
-        phoneLabel: "Telefone",
-        messageLabel: "Mensagem",
-        notProvided: "Não indicado",
+        heading: "Novo pedido comercial recebido por {companyName}",
+        nameLabel: "Pessoa responsável",
+        emailLabel: "Email para resposta",
+        phoneLabel: "Telefone ou WhatsApp",
+        messageLabel: "Negócio, necessidade e prazo indicados",
+        notProvided: "Não indicado no formulário",
       },
       validationMessages: {
-        nameMin: "Indique o seu nome.",
-        nameMax: "Indique um nome mais curto.",
-        emailInvalid: "Indique um email válido.",
-        emailMax: "Indique um email mais curto.",
-        phoneMax: "Indique um telefone mais curto.",
-        phoneInvalid: "Indique um telefone válido.",
-        messageMin: "Escreva uma mensagem com mais algum contexto.",
+        nameMin: "Indique o seu nome para sabermos como responder.",
+        nameMax: "Use um nome mais curto, com um máximo de 100 caracteres.",
+        emailInvalid: "Indique um endereço de email válido.",
+        emailMax: "Use um endereço de email mais curto.",
+        phoneMax: "Use um número de telefone mais curto.",
+        phoneInvalid: "Use apenas algarismos e os sinais habituais num número de telefone.",
+        messageMin: "Acrescente algum contexto sobre o negócio ou o site de que precisa.",
         messageMax: "Reduza a mensagem para menos de 2000 caracteres.",
       },
       faq: [
         {
-          id: "documentos",
-          question: "Que documentos devo enviar no primeiro contacto?",
+          id: "incluido-site-institucional",
+          question: "O que está incluído no pacote Site Institucional de 399 €?",
           answer:
-            "Se tiver, envie plantas, caderneta predial, fotografias, morada aproximada e uma lista curta do que pretende alterar. Quando não existe documentação, indicamos como começar pelo levantamento.",
+            "Inclui as páginas essenciais para apresentar a empresa, serviços, exemplos de trabalho e contactos, além de adaptação a telemóvel, formulário, mapa, informação legal, preparação básica para pesquisa, uma ronda de revisão e publicação. Confirmamos por escrito a lista exata antes de começar.",
         },
         {
-          id: "prazos",
-          question: "Conseguem dar prazos logo na primeira resposta?",
+          id: "inicio-cinco-dias",
+          question: "Os cinco dias úteis começam logo depois do primeiro contacto?",
           answer:
-            "Damos uma estimativa de faseamento, mas prazos fiáveis dependem de acesso ao imóvel, documentação existente, necessidade de especialidades e enquadramento municipal.",
+            "O prazo começa quando a proposta está aceite e recebemos os conteúdos essenciais: contactos, serviços, logótipo, imagens e respostas ao formulário inicial. Nesse momento confirmamos também a data prevista para apresentação e publicação.",
         },
         {
-          id: "orcamento",
-          question: "O atelier faz orçamento de obra?",
+          id: "conteudos-necessarios",
+          question: "O que precisam de mim para construir o site sem atrasos?",
           answer:
-            "Podemos apoiar a consulta a empreiteiros e comparar propostas, mas a execução e o preço final são responsabilidade das empresas consultadas.",
+            "Precisamos de informação prática sobre o negócio, lista de serviços, zonas atendidas, contactos, horários, logótipo e fotografias disponíveis. Enviamos uma lista organizada, identificamos o que falta e podemos ajudar a escrever ou selecionar materiais quando esse apoio é contratado.",
         },
         {
-          id: "licenca",
-          question: "Todas as obras precisam de licença?",
+          id: "depois-entrega",
+          question: "O que acontece depois da entrega e quem trata de alterações futuras?",
           answer:
-            "Não. Algumas intervenções podem não exigir licenciamento, mas é preciso avaliar caso a caso conforme o imóvel, a intervenção e o regulamento aplicável.",
+            "Entregamos o site publicado, organizamos acessos e explicamos o que pode ser atualizado. Pode gerir o conteúdo internamente, pedir alterações pontuais ou escolher um plano de manutenção com atualizações, acompanhamento e tempos de resposta definidos.",
+        },
+        {
+          id: "dominio-alojamento-email",
+          question: "Podem ajudar com domínio, alojamento, caixas de email e ferramentas que já usamos?",
+          answer:
+            "Sim. Primeiro confirmamos o que já existe e quem detém os acessos. Depois indicamos o que está incluído no pacote, que custos pertencem a fornecedores externos e se alguma migração ou integração precisa de orçamento separado.",
         },
       ],
     },
     notFound: {
       seo: {
         title: "Página não encontrada",
-        description: "O endereço pedido não existe ou foi movido.",
+        description: "O endereço pedido não existe ou deixou de estar disponível.",
       },
-      title: "Página não encontrada",
+      title: "Esta página não chegou à publicação.",
       message:
-        "O endereço que tentou abrir não corresponde a nenhuma página disponível neste template de teste.",
-      ctaLabel: "Regressar à página inicial",
+        "O endereço que tentou abrir não existe, foi alterado ou ficou incompleto. Volte ao início para conhecer os serviços da BrutalTech ou use o contacto direto se estava à procura de uma proposta.",
+      ctaLabel: "Voltar ao início e conhecer o pacote de 399 €",
     },
   },
-};
+} satisfies SiteContent;

@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="120" viewBox="0 0 480 120" role="img" aria-labelledby="title description">
-  <title id="title">Ponto de Fuga</title>
-  <desc id="description">Logótipo claro do atelier Ponto de Fuga</desc>
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 20h88v80H14z" stroke="#fbfcf8" stroke-width="4"/>
-    <path d="M22 90 93 32M22 36l71 54M58 20v80" stroke="#fbfcf8" stroke-width="3"/>
-    <circle cx="93" cy="61" r="7" fill="#d88760" stroke="#223036" stroke-width="3"/>
-  </g>
-  <text x="126" y="57" fill="#fbfcf8" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" letter-spacing="1.5">PONTO DE FUGA</text>
-  <text x="128" y="84" fill="#dce6e3" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.2">ARQUITETURA + INTERIORES</text>
+  <title id="title">BrutalTech</title>
+  <desc id="description">Logótipo claro da BrutalTech</desc>
+  <rect x="12" y="16" width="88" height="88" rx="3" fill="#fbfcf8"/>
+  <path fill="#223036" d="M28 29h29c17 0 26 7 26 19 0 7-4 13-11 16 9 3 14 9 14 18 0 13-10 21-28 21H28V29Zm15 13v16h13c8 0 12-3 12-8s-4-8-12-8H43Zm0 28v20h15c9 0 13-3 13-10s-4-10-13-10H43Z"/>
+  <rect x="85" y="16" width="15" height="15" fill="#d88760"/>
+  <text x="122" y="64" fill="#fbfcf8" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="900" letter-spacing="0.4">BRUTAL</text>
+  <text x="276" y="64" fill="#d88760" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="900" letter-spacing="0.4">TECH</text>
+  <text x="124" y="88" fill="#dce6e3" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="2.6">SITES SEM SURPRESAS</text>
 </svg>

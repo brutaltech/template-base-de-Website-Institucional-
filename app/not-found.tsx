@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { siteContent } from "@/content/site";
+import { siteContent } from "@/content";
 import { buildPageMetadata } from "@/lib/seo";
 
 export function generateMetadata() {

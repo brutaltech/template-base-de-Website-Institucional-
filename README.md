@@ -1,8 +1,8 @@
-# Ponto de Fuga — template institucional BrutalTech
+# BrutalTech — template institucional
 
 Template Next.js para sites institucionais de pequenas empresas, com Home, Sobre, Serviços, Portefólio, Contacto e páginas legais. Inclui SEO técnico, dados estruturados, formulário transacional por Resend, WhatsApp e Google Analytics opcional. O conteúdo do cliente vive em `content/site.ts`; componentes e layout podem ser reutilizados sem reescrever o site.
 
-**Demo publicada:** [https://ponto-de-fuga-brutaltech.vercel.app](https://ponto-de-fuga-brutaltech.vercel.app)
+**Demo publicada:** [https://brutaltech.vercel.app](https://brutaltech.vercel.app)
 
 ## Arranque local
 
@@ -59,7 +59,7 @@ Edite `content/site.ts`. O ficheiro tem tipos e comentários campo a campo; a vi
 - `siteContent.pages`: SEO e conteúdo de Home, Sobre, Serviços, Portefólio, Contacto e erro 404.
 - `siteCopy`: microcopy estrutural, como etiquetas de navegação, títulos auxiliares e mensagens de interface.
 - `legalPages`: nomes, rotas e SEO das páginas legais.
-- `siteTheme`, em `content/theme.ts`: a paleta única usada pelo site e pelos emails.
+- `siteTheme`, em `content/site.ts`: a paleta única usada pelo site e pelos emails.
 
 Regras práticas:
 
@@ -72,6 +72,9 @@ Regras práticas:
 
 #### Atualizar a morada e o mapa
 
+> Nota: as páginas legais continuam em MDX separado (`content/legal/*.mdx`). Isso é intencional, porque o rebrand deve alterar os dados da empresa em `siteContent` sem exigir edição jurídica nas políticas. O texto legal mantém a estrutura editorial nos MDX e agarra apenas `siteContent.identity`, `siteContent.contact.email` e `siteContent.contact.address` para interpolação.
+
+
 `contact.address.mapEmbedUrl` é um campo separado da morada estruturada porque o URL de incorporação do Google Maps tem parâmetros próprios. Trate os dois valores como um par acoplado e atualize-os na mesma alteração:
 
 1. Atualize `street`, `postalCode`, `city` e `country` em `siteContent.contact.address`.
@@ -83,7 +86,7 @@ Regras práticas:
 
 ### 2. Cores e fontes
 
-Edite as cores apenas em `siteTheme.colors`, no ficheiro `content/theme.ts`. O layout converte estes valores em variáveis CSS, o Tailwind consome-as e o template de email reutiliza os mesmos valores; não mantenha uma segunda paleta em componentes ou em `app/globals.css`.
+Edite as cores apenas em `siteTheme.colors`, no ficheiro `content/site.ts`. O layout converte estes valores em variáveis CSS, o Tailwind consome-as e o template de email reutiliza os mesmos valores; não mantenha uma segunda paleta em componentes ou em `app/globals.css`.
 
 | Campo | Controla |
 | --- | --- |
@@ -109,10 +112,10 @@ Substitua os ficheiros mantendo nomes, dimensões e rácios. Se alterar um nome,
 
 | Pasta / ficheiro | Dimensões | Formato | Rácio | Utilização |
 | --- | ---: | --- | ---: | --- |
-| `public/images/home/atelier-hero.webp` | 1920×1080 | WebP, qualidade ~80 | 16:9 | Hero da Home; manter a zona esquerda visualmente calma para o texto |
+| `public/images/home/brutaltech-hero.webp` | 1920×1080 | WebP, qualidade ~80 | 16:9 | Hero da Home; manter a zona esquerda visualmente calma para o texto |
 | `public/images/portfolio/*.webp` | 1200×900 | WebP, qualidade ~80 | 4:3 | Todos os cartões do Portefólio |
 | `public/images/team/*.webp` | 800×800 | WebP, qualidade ~80 | 1:1 | Retratos da Equipa |
-| `public/images/og/ponto-de-fuga.webp` | 1200×630 | WebP, qualidade ~80 | 40:21 | Open Graph e Twitter por omissão |
+| `public/images/og/brutaltech.webp` | 1200×630 | WebP, qualidade ~80 | 40:21 | Open Graph e Twitter por omissão |
 | `public/images/logo-dark.svg` | 480×120 viewBox | SVG | 4:1 | Logótipo para fundos claros |
 | `public/images/logo-light.svg` | 480×120 viewBox | SVG | 4:1 | Logótipo para fundos escuros |
 | `public/images/favicon.svg` | 64×64 viewBox | SVG | 1:1 | Favicon definido por `siteContent.identity.favicon` |
@@ -223,7 +226,7 @@ Faça estas verificações no URL público, não em `next dev`:
 
 ## Validação do desacoplamento
 
-O template foi transformado numa consultora imobiliária fictícia no branch `rehearsal/norte-habitat`. A transformação inicial demorou 3 min 17 s; depois de corrigidos os problemas encontrados no template, a repetição demorou 40 s. O ensaio original alterou apenas `content/site.ts`, a paleta e ficheiros de `public/images/`, sem alterações a componentes. A paleta foi entretanto centralizada em `content/theme.ts`, que é o ponto atual de personalização. Consulte o [relatório histórico do ensaio](reports/rehearsal.md).
+O template foi transformado numa consultora imobiliária fictícia no branch `rehearsal/norte-habitat`. A transformação inicial demorou 3 min 17 s; depois de corrigidos os problemas encontrados no template, a repetição demorou 40 s. O ensaio original alterou apenas `content/site.ts`, a paleta e ficheiros de `public/images/`, sem alterações a componentes. A paleta foi entretanto centralizada em `content/site.ts`, que é o ponto atual de personalização. Consulte o [relatório histórico do ensaio](reports/rehearsal.md).
 
 ## Comandos úteis
 

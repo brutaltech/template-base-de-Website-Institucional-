@@ -5,8 +5,8 @@ import { Resend } from "resend";
 import {
   interpolateContentTemplate,
   siteContent,
-} from "@/content/site";
-import { siteTheme } from "@/content/theme";
+  siteTheme,
+} from "@/content";
 import {
   CONTACT_FORM_FIELD_NAMES,
   contactFormPayloadFromFormData,

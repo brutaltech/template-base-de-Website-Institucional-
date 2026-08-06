@@ -1,5 +1,5 @@
 import { LegalPage } from "@/components/legal-page";
-import { legalPages } from "@/content/site";
+import { legalPages } from "@/content";
 import TermsContent from "@/content/legal/termos.mdx";
 import { buildPageMetadata } from "@/lib/seo";
 
