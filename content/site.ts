@@ -268,6 +268,14 @@ export interface SiteContent {
     };
     /** Linhas de horário apresentadas no contacto. */
     hours: BusinessHours[];
+    /**
+     * Horário no formato schema.org `openingHours`, para o JSON-LD (LocalBusiness).
+     * Cada entrada usa códigos de dia de duas letras e horas em formato 24h:
+     * `"Mo,Tu,We,Th,Fr 09:00-18:00"` ou `"Mo-Fr 09:00-18:00"`. Omita os dias
+     * fechados (schema.org não tem forma própria de os representar). Deixe
+     * por preencher (`undefined`) para omitir `openingHours` do JSON-LD.
+     */
+    hoursSchema?: string[];
     /** Perfis sociais; remover entradas não usadas. */
     social: SocialLink[];
   };
@@ -440,7 +448,7 @@ export const siteCopy = {
     /** Sobretítulo da secção de serviços. */
     servicesEyebrow: "Serviços",
     /** Sobretítulo da apresentação institucional. */
-    aboutEyebrow: "BrutalTech",
+    aboutEyebrow: "{companyName}",
   },
   pageEyebrows: {
     /** Sobretítulo da página Sobre. */
@@ -550,12 +558,12 @@ export const siteContent: SiteContent = {
   },
 
   contact: {
-    email: "geral@pontodefuga.example",
+    email: "geral@brutaltech.pt",
     phone: "+351 220 145 870",
     whatsapp: {
       number: "+351 912 345 678",
       defaultMessage:
-        "Olá, quero saber mais sobre o Site Institucional da BrutalTech.",
+        "Olá, quero saber mais sobre o Site Institucional da {companyName}.",
     },
     address: {
       street: "Rua de Camões, 218, 3.º",
@@ -570,6 +578,7 @@ export const siteContent: SiteContent = {
       { day: "Sábado", hours: "Encerrado" },
       { day: "Domingo", hours: "Encerrado" },
     ],
+    hoursSchema: ["Mo-Fr 09:00-18:00"],
     social: [],
   },
 
@@ -627,7 +636,7 @@ export const siteContent: SiteContent = {
         title: "Uma equipa pequena, focada no que dá resultado.",
         text:
           "Criamos sites claros, rápidos e fáceis de encontrar. O dono do negócio sabe sempre o que está incluído, quanto custa e quando fica pronto.",
-        ctaLabel: "Conhecer a BrutalTech",
+        ctaLabel: "Conhecer a {companyName}",
         ctaHref: "/sobre",
       },
       finalCta: {
@@ -640,7 +649,7 @@ export const siteContent: SiteContent = {
     },
     about: {
       seo: {
-        title: "Sobre a BrutalTech",
+        title: "Sobre a {companyName}",
         description:
           "Conheça a equipa, a história e a forma direta de trabalhar de {companyName} no Porto.",
       },

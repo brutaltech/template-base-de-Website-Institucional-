@@ -1,10 +1,17 @@
+import { interpolateContentTemplate } from "@/content";
 import type { SiteContent } from "@/content/site";
 
 type Contact = SiteContent["contact"];
 
-export function getWhatsappHref(whatsapp: Contact["whatsapp"]) {
+export function getWhatsappHref(
+  whatsapp: Contact["whatsapp"],
+  companyName: string,
+) {
   const number = whatsapp.number.replace(/\D/g, "");
-  const message = encodeURIComponent(whatsapp.defaultMessage.trim());
+  const text = interpolateContentTemplate(whatsapp.defaultMessage.trim(), {
+    companyName,
+  });
+  const message = encodeURIComponent(text);
 
   return `https://wa.me/${number}${message ? `?text=${message}` : ""}`;
 }

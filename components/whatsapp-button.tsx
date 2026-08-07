@@ -4,7 +4,7 @@ import { getWhatsappHref } from "@/lib/contact-links";
 
 export function WhatsappButton() {
   const { contact, identity } = siteContent;
-  const href = getWhatsappHref(contact.whatsapp);
+  const href = getWhatsappHref(contact.whatsapp, identity.name);
 
   return (
     <a

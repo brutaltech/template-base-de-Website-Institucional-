@@ -37,6 +37,7 @@ export const stressTestSiteContent = {
       { day: "Sábado", hours: "10:00–13:00, apenas por marcação" },
       { day: "Domingo e feriados", hours: "Encerrado" },
     ],
+    hoursSchema: ["Mo-Th 09:00-18:30", "Fr 09:00-17:30", "Sa 10:00-13:00"],
     social: [],
   },
 

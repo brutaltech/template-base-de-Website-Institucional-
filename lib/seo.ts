@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import {
-  interpolateContentTemplate,
-  legalPages,
-  siteContent,
-} from "@/content/site";
+import { interpolateContentTemplate, legalPages, siteContent } from "@/content";
 import type { SeoMeta } from "@/content/site";
 
 const FALLBACK_SITE_URL = "http://localhost:3000";

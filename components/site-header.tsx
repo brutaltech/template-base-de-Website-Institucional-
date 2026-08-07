@@ -95,7 +95,14 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="relative md:hidden">
+        <div
+          className="relative md:hidden"
+          onBlur={(event) => {
+            if (isOpen && !event.currentTarget.contains(event.relatedTarget)) {
+              closeMenu(false);
+            }
+          }}
+        >
           <button
             aria-controls={menuId}
             aria-expanded={isOpen}

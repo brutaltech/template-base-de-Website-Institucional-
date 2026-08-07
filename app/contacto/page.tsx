@@ -31,11 +31,11 @@ export function generateMetadata() {
 export default async function ContactPage() {
   await connection();
 
-  const { contact } = siteContent;
+  const { contact, identity } = siteContent;
   const page = siteContent.pages.contact;
   const address = getAddressText(contact.address);
   const location = getLocationText(contact.address);
-  const whatsappHref = getWhatsappHref(contact.whatsapp);
+  const whatsappHref = getWhatsappHref(contact.whatsapp, identity.name);
   const mapEmbedUrl = getMapEmbedUrl(contact.address);
   const mapSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     address,

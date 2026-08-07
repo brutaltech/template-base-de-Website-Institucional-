@@ -15,7 +15,7 @@ export function StructuredData() {
     telephone: contact.phone,
     email: contact.email,
     address,
-    openingHours: contact.hours.map((item) => `${item.day}: ${item.hours}`),
+    ...(contact.hoursSchema?.length ? { openingHours: contact.hoursSchema } : {}),
     sameAs: contact.social.map((social) => social.url),
   };
 

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { siteContent, siteCopy } from "@/content";
+import { interpolateContentTemplate, siteContent, siteCopy } from "@/content";
 import { buildPageMetadata } from "@/lib/seo";
 
 export function generateMetadata() {
@@ -13,9 +13,18 @@ export function generateMetadata() {
 }
 
 export default function Home() {
-  const { pages } = siteContent;
+  const { pages, identity } = siteContent;
   const home = pages.home;
   const services = pages.services.items;
+  const templateValues = { companyName: identity.name };
+  const aboutEyebrow = interpolateContentTemplate(
+    siteCopy.home.aboutEyebrow,
+    templateValues,
+  );
+  const aboutCtaLabel = interpolateContentTemplate(
+    home.about.ctaLabel,
+    templateValues,
+  );
 
   return (
     <>
@@ -117,7 +126,7 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
               <div className="h-full rounded-lg border border-brand-primary/10 bg-brand-surface-soft p-6">
                 <p className="text-sm font-semibold uppercase text-brand-accent">
-                  {siteCopy.home.aboutEyebrow}
+                  {aboutEyebrow}
                 </p>
                 <div
                   aria-hidden="true"
@@ -133,7 +142,7 @@ export default function Home() {
                 </p>
                 <div className="mt-8">
                   <Button href={home.about.ctaHref} variant="secondary">
-                    {home.about.ctaLabel}
+                    {aboutCtaLabel}
                     <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
                   </Button>
                 </div>

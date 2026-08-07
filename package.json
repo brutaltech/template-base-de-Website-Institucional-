@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
     "test": "tsx --test tests/contact-form-schema.test.mjs tests/contact-form-security.test.mjs"
   },
   "dependencies": {

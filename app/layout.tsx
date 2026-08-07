@@ -74,7 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {siteCopy.layout.skipLink}
           </a>
           <SiteHeader />
-          <main className="flex-1 pb-20 sm:pb-0" id="conteudo">
+          <main className="flex-1 pb-20 sm:pb-0" id="conteudo" tabIndex={-1}>
             {children}
           </main>
           <SiteFooter />

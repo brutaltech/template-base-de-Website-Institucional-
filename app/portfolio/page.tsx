@@ -23,7 +23,7 @@ function PortfolioFallback({ item }: { item: PortfolioItem }) {
       <div className="relative flex h-14 w-14 items-center justify-center rounded-md bg-brand-primary text-white">
         <ImageIcon aria-hidden="true" size={24} strokeWidth={1.8} />
       </div>
-      <p className="relative max-w-[14rem] text-sm font-semibold uppercase leading-5 text-brand-primary/62">
+      <p className="relative max-w-[14rem] text-sm font-semibold uppercase leading-5 text-brand-primary/68">
         {item.category}
       </p>
     </div>

@@ -40,9 +40,12 @@ npm run dev
 Abra [http://localhost:3000](http://localhost:3000). Antes de entregar ou publicar, execute também:
 
 ```bash
+npm run typecheck
 npm run lint
 npm run build
 ```
+
+`npm run typecheck` corre `next typegen` antes do `tsc --noEmit`. É necessário nessa ordem: o Next.js 16 gera `LayoutProps`/`PageProps` (tipos globais usados pelas rotas) apenas ao correr `next dev`, `next build` ou `next typegen` — chamar `tsc --noEmit` isolado numa cópia acabada de clonar, sem nunca ter corrido nenhum destes três, falha por não encontrar esses tipos ainda por gerar.
 
 ## Personalizar para um cliente
 
@@ -222,18 +225,33 @@ Faça estas verificações no URL público, não em `next dev`:
 - [ ] Analytics configurado ou deliberadamente deixado inativo.
 - [ ] Lighthouse de produção ≥ 90 nas quatro categorias em todas as páginas de conteúdo verificadas; relatórios arquivados.
 - [ ] Na 404, Performance, Acessibilidade e Boas Práticas são ≥ 90. A categoria SEO fica excluída deste limiar: uma 404 deve responder com HTTP 404 e `noindex`, e não deve ser tornada indexável nem responder 200 apenas para aumentar a pontuação Lighthouse.
-- [ ] `npm run lint`, `npm run build` e `git status` sem problemas pendentes.
+- [ ] `npm run typecheck`, `npm run lint`, `npm run build` e `git status` sem problemas pendentes.
 
 ## Validação do desacoplamento
 
 O template foi transformado numa consultora imobiliária fictícia no branch `rehearsal/norte-habitat`. A transformação inicial demorou 3 min 17 s; depois de corrigidos os problemas encontrados no template, a repetição demorou 40 s. O ensaio original alterou apenas `content/site.ts`, a paleta e ficheiros de `public/images/`, sem alterações a componentes. A paleta foi entretanto centralizada em `content/site.ts`, que é o ponto atual de personalização. Consulte o [relatório histórico do ensaio](reports/rehearsal.md).
 
+### Testar variações de conteúdo (stress test)
+
+Para validar que o layout aguenta nomes longos, muitos serviços e portefólio misto (com e sem imagem) sem editar código, ative o conjunto de conteúdo de stress test por variável de ambiente:
+
+```bash
+NEXT_PUBLIC_CONTENT_SET=stress npm run dev
+```
+
+Isto troca `siteContent` para o fixture definido em `content/site.stress-test.ts` (nome de marca muito longo, 8 serviços, 7 projetos de portefólio dos quais 2 sem imagem). Sirva para conferir grelhas, quebras de texto e o fallback de imagem em falta a 375px, 768px e 1440px. **Nunca defina `NEXT_PUBLIC_CONTENT_SET=stress` num ambiente de produção ou de demo** — é só uma ferramenta de verificação local; para voltar ao conteúdo real, arranque sem a variável (ou com `NEXT_PUBLIC_CONTENT_SET` vazio/omitido).
+
 ## Comandos úteis
 
 ```bash
-npm run dev      # desenvolvimento local
-npm test         # valida schema configurável, token HMAC e rate limit
-npm run lint     # regras de qualidade e acessibilidade estática
-npm run build    # compilação de produção
-npm run start    # serve localmente a compilação de produção
+npm run dev        # desenvolvimento local
+npm test           # valida schema configurável, token HMAC e rate limit
+npm run typecheck  # gera os tipos de rotas (next typegen) e corre tsc --noEmit
+npm run lint       # regras de qualidade e acessibilidade estática
+npm run build      # compilação de produção
+npm run start      # serve localmente a compilação de produção
 ```
+
+## Documentação interna
+
+`docs/auditoria/AUDIT_RESPONSE.md` regista a resposta a auditorias de conformidade anteriores deste template. É histórico do processo, não conteúdo do site — não precisa de ser lido nem editado para personalizar ou publicar um site de cliente.

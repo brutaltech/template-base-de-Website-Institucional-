@@ -7,14 +7,12 @@ import { siteContent } from "@/content";
 import { buildPageMetadata } from "@/lib/seo";
 
 export function generateMetadata() {
+  // Next.js injeta automaticamente `noindex` em qualquer página com status 404
+  // (incluindo esta), por isso não repetimos `robots` aqui.
   return {
     ...buildPageMetadata(siteContent.pages.notFound.seo),
     alternates: {
       canonical: null,
-    },
-    robots: {
-      follow: false,
-      index: false,
     },
   };
 }
